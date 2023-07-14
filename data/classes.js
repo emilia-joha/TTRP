@@ -1,6 +1,6 @@
-const tools = require('./tools');
+import {tools} from "./tools.js";
 
-module.exports = [
+export const classes = [
   {
     name: 'Artificer',
     armorProficiency: ['Light', 'Medium', 'Shield'],

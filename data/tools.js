@@ -1,4 +1,4 @@
-module.exports = {
+export const tools = {
   gaming: ["Dice set", "Playing card set"],
   musical: ["Bagpipes", "Drum", "Dulcimer", "Flute", "Lute", "Lyre", "Horn", "Pan flute", "Shawm", "Viol"],
   artisan: [

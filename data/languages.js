@@ -1,4 +1,4 @@
-module.exports = [
+export const languages = [
   'Common',
   'Dwarvish',
   'Elvish',

@@ -1,5 +1,5 @@
-const languages = require("./languages");
-const tools = require("./tools");
+import {languages} from "./languages.js"
+import {tools} from "./tools.js";
 
 function two(array) {
   return [array, array];
@@ -9,7 +9,7 @@ function one(array) {
   return [array];
 }
 
-module.exports = [
+export const backgrounds = [
   {
     name: "Acolyte",
     tools: [],

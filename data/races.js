@@ -10,7 +10,7 @@ function rand(items) {
   return items[Math.floor(Math.random() * items.length)] || "";
 }
 
-module.exports = [
+export const races = [
   {
     name: "Dragonborn",
     darkvision: 0,
