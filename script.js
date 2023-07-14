@@ -1,4 +1,3 @@
-
 $("header").on("click", function(){
     let foldable = $(this).siblings(".foldable")
     if (foldable.css("display") == "block") {
