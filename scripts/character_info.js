@@ -46,7 +46,6 @@ $("#class").on("change", function () {
       $("#subclass").append(subClassHTMLAsText);
     }
   });
-  console.log($("#subclass").children().length);
 });
 
 // beroende på vilken klass som väljs precenteras olika subclasser
