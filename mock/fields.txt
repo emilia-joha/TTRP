@@ -135,3 +135,4 @@ const fields = [
 Lägg till:
 darkvison
 darkvision_proficiency
+subclass

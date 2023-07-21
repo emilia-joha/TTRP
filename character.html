@@ -11,34 +11,38 @@
     <section>
         <header>Character Information</header>
         <div class="foldable">
-            <iframe src="character_info.html" onload="this.before((this.contentDocument.body||this.contentDocument));this.remove()"></iframe>
+            <div id="character_info"></div>
         </div>
     </section>
     <section>
         <header>Background</header>
         <div class="foldable">
-            <iframe src="background.html" onload="this.before((this.contentDocument.body||this.contentDocument));this.remove()"></iframe>
+            <div id="background"></div>
         </div>
     </section>
     <section>
         <header>Abilities</header>
         <div class="foldable">
-            <iframe src="abilities.html" onload="this.before((this.contentDocument.body||this.contentDocument));this.remove()"></iframe>
+            <div id="abilities"></div>
         </div>
     </section>
     <section>
         <header>Equipment</header>
         <div class="foldable">
-            <iframe src="equipment.html" onload="this.before((this.contentDocument.body||this.contentDocument));this.remove()"></iframe>
-        </div>
+            <div id="equipment"></div>
+        </div> 
     </section>
     <section>
         <header>Fight</header>
         <div class="foldable">
-            <iframe src="fight.html" onload="this.before((this.contentDocument.body||this.contentDocument));this.remove()"></iframe>
+            <div id="fight"></div>
         </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/load-subpages.js" type="module"></script>
+    <script src="./scripts/character_info.js" type="module"></script>
+    <script src="./scripts/abilities.js"></script>    
+
 </body>
 </html>
