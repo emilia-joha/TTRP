@@ -1,26 +1,8 @@
+import { backgrounds } from "../data/backgrounds.js";
+import { skills } from "../data/skills.js";
 
-const skills =[
-    ["Acrobatics", "Dex", 'proficiency_skill_acrobatics','expertise_skill_acrobatics','skill_acrobatics'], 
-    ["Animal Handling", "Wis", 'proficiency_skill_animal_handling','expertise_skill_animal_handling','skill_animal_handling'],
-    ["Arcana", "Int",'proficiency_skill_arcana','expertise_skill_arcana','skill_arcana'], 
-    ["Athletics", "Str",'proficiency_skill_athletics','expertise_skill_athletics','skill_athletics'],
-    ["Deception", "Cha",  'proficiency_skill_deception','expertise_skill_deception','skill_deception' ],
-    ["History", "Int", 'proficiency_skill_history','expertise_skill_history','skill_history'], 
-    ["Insight", "Wis", 'proficiency_skill_insight','expertise_skill_insight','skill_insight' ], 
-    ["Intimidation", "Cha", 'proficiency_skill_intimidation','expertise_skill_intimidation','skill_intimidation'], 
-    ["Investigation", "Int",'proficiency_skill_investigation','expertise_skill_investigation','skill_investigation' ], 
-    ["Medicine", "Wis",'proficiency_skill_medicine','expertise_skill_medicine','skill_medicine'], 
-    ["Nature", "Int",'proficiency_skill_nature','expertise_skill_nature','skill_nature'], 
-    ["Perception", "Wis", 'proficiency_skill_perception','expertise_skill_perception','skill_perception' ], 
-    ["Performance", "Cha", 'proficiency_skill_performance','expertise_skill_performance','skill_performance' ], 
-    ["Persuasion", "Cha", 'proficiency_skill_persuasion','expertise_skill_persuasion','skill_persuasion' ], 
-    ["Religion", "Int", 'proficiency_skill_religion','expertise_skill_religion','skill_religion' ], 
-    ["Sleight of Hand", "Dex", 'proficiency_skill_sleight_of_hand','expertise_skill_sleight_of_hand','skill_sleight_of_hand' ], 
-    ["Stealth", "Dex",'proficiency_skill_stealth','expertise_skill_stealth','skill_stealth' ], 
-    ["Survival", "Wis", 'proficiency_skill_survival','expertise_skill_survival','skill_survival']]
-
-const skillHTML = skills.map(function(skill){
-    return `
+const skillHTML = skills.map(function (skill) {
+  return `
     <div class="skill">
         <label>
             <input id="${skill[3]}" type="checkbox"/>
@@ -30,8 +12,99 @@ const skillHTML = skills.map(function(skill){
     </div>`;
 });
 
-const htmlAsText = skillHTML.join('');
-
+const htmlAsText = skillHTML.join("");
 $("#skills").html(htmlAsText);
 
+$("#ability_strength").keyup(function () {
+  const abilityStrength = $(this).val();
+  const modifier = abilityCalc(abilityStrength);
+  $("#ability_modifier_strength").text(modifier);
+});
+
+$("#ability_dexterity").keyup(function () {
+  const ability = $(this).val();
+  const modifier = abilityCalc(ability);
+  $("#ability_modifier_dexterity").text(modifier);
+});
+
+$("#ability_constitution").keyup(function () {
+  const ability = $(this).val();
+  const modifier = abilityCalc(ability);
+  $("#ability_modifier_constitution").text(modifier);
+});
+
+$("#ability_intelligence").keyup(function () {
+  const ability = $(this).val();
+  const modifier = abilityCalc(ability);
+  $("#ability_modifier_intelligence").text(modifier);
+});
+
+$("#ability_wisdom").keyup(function () {
+  const ability = $(this).val();
+  const modifier = abilityCalc(ability);
+  $("#ability_modifier_wisdom").text(modifier);
+});
+
+$("#ability_charisma").keyup(function () {
+  const ability = $(this).val();
+  const modifier = abilityCalc(ability);
+  $("#ability_modifier_charisma").text(modifier);
+});
+
+$("#level").on("change", function () {
+  const selectedlevel = $(this).val();
+  const profBonus = proficiency(selectedlevel);
+  $("#proficiency_bonus").text(profBonus);
+});
+
+let previousSelectedBackground = null;
+
+$("#background").on("change", function (e) {
+  const selectedBackground = $(this).val();
+
+  const background = backgrounds.find((b) => b.name == selectedBackground);
+  const previousBackground = backgrounds.find(
+    (b) => b.name == previousSelectedBackground
+  );
+
+  // ta bort förra background proficiencies
+  previousBackground?.proficiencies.forEach(function (prof) {
+    if (typeof prof == "string") {
+      const profLower = prof.toLowerCase().replaceAll(" ", "_");
+      $(`#proficiency_skill_${profLower}`).prop("checked", false);
+    } else {
+      alert(
+        `Please remove the proficiency you chose of the following skill proficiencies: ${prof.join(
+          ", "
+        )}`
+      );
+    }
+  });
+
+  // lägg till de nya
+  background.proficiencies.forEach(function (prof) {
+    if (typeof prof == "string") {
+      const profLower = prof.toLowerCase().replaceAll(" ", "_");
+      console.log(profLower);
+      $(`#proficiency_skill_${profLower}`).prop("checked", true);
+    } else {
+      alert(
+        `Choose one of the following skill proficiencies: ${prof.join(", ")}`
+      );
+    }
+  });
+
+  // kom ihåg vilken som var vald ifall man byter
+  previousSelectedBackground = background.name;
+});
+
+function abilityCalc(ability) {
+  return Math.floor((ability - 10) / 2);
+}
+
+function proficiency(lvl) {
+  return Math.ceil(lvl / 4) + 1;
+}
+
 //Lägg till text on hover som förklarar expertice och proficiency check box
+//https://www.w3schools.com/howto/howto_css_tooltip.asp

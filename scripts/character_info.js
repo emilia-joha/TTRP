@@ -23,9 +23,7 @@ $("#class").append(classesHTMLAsText);
 const levelHTML = [];
 for (let i = 1; i <= 20; i++) {
   levelHTML.push(`<option value="${i}">${i}</option>`);
-  console.log("hej");
 }
-console.log(levelHTML);
 
 const levelHTMLAsText = levelHTML.join("");
 $("#level").append(levelHTMLAsText);
