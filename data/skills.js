@@ -5,6 +5,7 @@ export const skills = [
     "proficiency_skill_acrobatics",
     "expertise_skill_acrobatics",
     "skill_acrobatics",
+    "dexterity_ability_modifier",
   ],
   [
     "Animal Handling",
@@ -12,6 +13,7 @@ export const skills = [
     "proficiency_skill_animal_handling",
     "expertise_skill_animal_handling",
     "skill_animal_handling",
+    "ability_modifier_wisdom",
   ],
   [
     "Arcana",
@@ -19,6 +21,7 @@ export const skills = [
     "proficiency_skill_arcana",
     "expertise_skill_arcana",
     "skill_arcana",
+    "ability_modifier_intelligence",
   ],
   [
     "Athletics",
@@ -26,6 +29,7 @@ export const skills = [
     "proficiency_skill_athletics",
     "expertise_skill_athletics",
     "skill_athletics",
+    "ability_modifier_strength",
   ],
   [
     "Deception",
@@ -33,6 +37,7 @@ export const skills = [
     "proficiency_skill_deception",
     "expertise_skill_deception",
     "skill_deception",
+    "ability_modifier_charisma",
   ],
   [
     "History",
@@ -40,6 +45,7 @@ export const skills = [
     "proficiency_skill_history",
     "expertise_skill_history",
     "skill_history",
+    "ability_modifier_intelligence",
   ],
   [
     "Insight",
@@ -47,6 +53,7 @@ export const skills = [
     "proficiency_skill_insight",
     "expertise_skill_insight",
     "skill_insight",
+    "ability_modifier_wisdom",
   ],
   [
     "Intimidation",
@@ -54,6 +61,7 @@ export const skills = [
     "proficiency_skill_intimidation",
     "expertise_skill_intimidation",
     "skill_intimidation",
+    "ability_modifier_charisma",
   ],
   [
     "Investigation",
@@ -61,6 +69,7 @@ export const skills = [
     "proficiency_skill_investigation",
     "expertise_skill_investigation",
     "skill_investigation",
+    "ability_modifier_intelligence",
   ],
   [
     "Medicine",
@@ -68,6 +77,7 @@ export const skills = [
     "proficiency_skill_medicine",
     "expertise_skill_medicine",
     "skill_medicine",
+    "ability_modifier_wisdom",
   ],
   [
     "Nature",
@@ -75,6 +85,7 @@ export const skills = [
     "proficiency_skill_nature",
     "expertise_skill_nature",
     "skill_nature",
+    "ability_modifier_intelligence",
   ],
   [
     "Perception",
@@ -82,6 +93,7 @@ export const skills = [
     "proficiency_skill_perception",
     "expertise_skill_perception",
     "skill_perception",
+    "ability_modifier_wisdom",
   ],
   [
     "Performance",
@@ -89,6 +101,7 @@ export const skills = [
     "proficiency_skill_performance",
     "expertise_skill_performance",
     "skill_performance",
+    "ability_modifier_charisma",
   ],
   [
     "Persuasion",
@@ -96,6 +109,7 @@ export const skills = [
     "proficiency_skill_persuasion",
     "expertise_skill_persuasion",
     "skill_persuasion",
+    "ability_modifier_charisma",
   ],
   [
     "Religion",
@@ -103,6 +117,7 @@ export const skills = [
     "proficiency_skill_religion",
     "expertise_skill_religion",
     "skill_religion",
+    "ability_modifier_intelligence",
   ],
   [
     "Sleight of Hand",
@@ -110,6 +125,7 @@ export const skills = [
     "proficiency_skill_sleight_of_hand",
     "expertise_skill_sleight_of_hand",
     "skill_sleight_of_hand",
+    "ability_modifier_dexterity",
   ],
   [
     "Stealth",
@@ -117,6 +133,7 @@ export const skills = [
     "proficiency_skill_stealth",
     "expertise_skill_stealth",
     "skill_stealth",
+    "ability_modifier_dexterity",
   ],
   [
     "Survival",
@@ -124,5 +141,6 @@ export const skills = [
     "proficiency_skill_survival",
     "expertise_skill_survival",
     "skill_survival",
+    "ability_modifier_wisdom",
   ],
 ];

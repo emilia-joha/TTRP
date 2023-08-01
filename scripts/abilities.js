@@ -8,9 +8,10 @@ const skillHTML = skills.map(function (skill) {
         <label>
             <input id="${skill[3]}" class="expertise" type="checkbox"/>
             <input id="${skill[2]}" class="proficiency" type="checkbox"/>
-            <p id="${skill[0]}" class="${skill[1]}"> </p>
+            <p id="${skill[4]}" class="${skill[1]}"> </p>
             ${skill[0]} (${skill[1]})
         </label>
+        <hr>
     </div>`;
 });
 const htmlAsText = skillHTML.join("");
@@ -45,6 +46,7 @@ $("#ability_wisdom").keyup(function () {
   const ability = $(this).val();
   const modifier = abilityCalc(ability);
   $("#ability_modifier_wisdom").text(modifier);
+  recalculateAbilities();
   passivePerception();
   passiveInsight();
 });
@@ -111,6 +113,7 @@ $(".proficiency, .expertise").change(function () {
   console.log(skillProf);
 
   $(this).siblings("p").text(skillProf);
+
   passivePerception();
   passiveInsight();
   passiveInvestigation();
@@ -125,7 +128,23 @@ $("#race").change(function () {
   }
 });
 
-function calculateAbilityScores() {}
+function recalculateAbilities() {
+  // Sätt alla ability scores till rätt värden, baserade på stat, prof, expertise
+  for (const skill of skills) {
+    const [_, __, profId, expertId, skillId, statModifier] = skill;
+
+    const profBonus = $("#proficiency_bonus").text();
+    const isProficient = $(`#${profId}`).is(":checked");
+    const isExpert = $(`#${expertId}`).is(":checked");
+    const statValue = $(`#${statModifier}`).val();
+
+    let calculatedAbility = statValue;
+    if (isProficient) calculatedAbility += profBonus;
+    if (isProficient && isExpert) calculatedAbility += profBonus;
+
+    $(`#${skillId}`).text(calculatedAbility);
+  }
+}
 
 function passivePerception() {
   const perception = $("#Perception").text();
