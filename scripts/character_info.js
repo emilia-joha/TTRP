@@ -45,5 +45,3 @@ $("#class").on("change", function () {
     }
   });
 });
-
-// beroende på vilken klass som väljs precenteras olika subclasser
