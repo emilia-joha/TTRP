@@ -21,24 +21,28 @@ $("#ability_strength").keyup(function () {
   const abilityStrength = $(this).val();
   const modifier = abilityCalc(abilityStrength);
   $("#ability_modifier_strength").text(modifier);
+  recalculateAbilities();
 });
 
 $("#ability_dexterity").keyup(function () {
   const ability = $(this).val();
   const modifier = abilityCalc(ability);
   $("#ability_modifier_dexterity").text(modifier);
+  recalculateAbilities();
 });
 
 $("#ability_constitution").keyup(function () {
   const ability = $(this).val();
   const modifier = abilityCalc(ability);
   $("#ability_modifier_constitution").text(modifier);
+  recalculateAbilities();
 });
 
 $("#ability_intelligence").keyup(function () {
   const ability = $(this).val();
   const modifier = abilityCalc(ability);
   $("#ability_modifier_intelligence").text(modifier);
+  recalculateAbilities();
   passiveInvestigation();
 });
 
@@ -55,12 +59,14 @@ $("#ability_charisma").keyup(function () {
   const ability = $(this).val();
   const modifier = abilityCalc(ability);
   $("#ability_modifier_charisma").text(modifier);
+  recalculateAbilities();
 });
 
 $("#level").on("change", function () {
   const selectedlevel = $(this).val();
   const profBonus = proficiency(selectedlevel);
   $("#proficiency_bonus").text(profBonus);
+  recalculateAbilities();
 });
 
 let previousSelectedBackground = null;
@@ -77,7 +83,6 @@ $("#background").on("change", function () {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", false);
-      $(`#proficiency_skill_${profLower}`).trigger("change");
     } else {
       alert(
         `Please remove the proficiency you chose of the following skill proficiencies: ${prof.join(
@@ -92,7 +97,6 @@ $("#background").on("change", function () {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", true);
-      $(`#proficiency_skill_${profLower}`).trigger("change");
     } else {
       alert(
         `Choose one of the following skill proficiencies: ${prof.join(", ")}`
@@ -100,26 +104,20 @@ $("#background").on("change", function () {
     }
   });
   // kom ihåg vilken som var vald ifall man byter
+  recalculateAbilities();
   previousSelectedBackground = background.name;
 });
 
 $(".proficiency, .expertise").change(function () {
-  //  ändrar prof fel, varför?
-  const profBonus = $("#proficiency_bonus").text();
-  const skill = $(this).siblings("p").text();
-  $(this).siblings("p").empty();
-  const skillProf =
-    Number(skill) + (this.checked ? Number(profBonus) : -Number(profBonus));
-  console.log(skillProf);
-
-  $(this).siblings("p").text(skillProf);
-
+  recalculateAbilities();
   passivePerception();
   passiveInsight();
   passiveInvestigation();
 });
 
 $("#race").change(function () {
+  // raser ger stats också, men måste göras manuellt just nu
+  // varning: vissa raser har "random stat" i datan.
   $("#darkvision").val("");
   const selectedRace = $(this).val();
   const race = races.find((x) => x.name == selectedRace);
@@ -138,10 +136,11 @@ function recalculateAbilities() {
     const isExpert = $(`#${expertId}`).is(":checked");
     const statValue = $(`#${statModifier}`).val();
 
-    let calculatedAbility = statValue;
+    let calculatedAbility = Number(statValue);
     if (isProficient) calculatedAbility += profBonus;
     if (isProficient && isExpert) calculatedAbility += profBonus;
 
+    $(`#${skillId}`).empty();
     $(`#${skillId}`).text(calculatedAbility);
   }
 }

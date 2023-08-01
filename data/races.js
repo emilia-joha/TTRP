@@ -1,7 +1,11 @@
 var lastTwoStats = [];
 
 function randStat(except) {
-  const stat = rand(["str", "dex", "con", "int", "wis", "cha"].filter((x) => ![...lastTwoStats, except].includes(x)));
+  const stat = rand(
+    ["str", "dex", "con", "int", "wis", "cha"].filter(
+      (x) => ![...lastTwoStats, except].includes(x)
+    )
+  );
   lastTwoStats = [stat, lastTwoStats[0]];
   return stat;
 }
