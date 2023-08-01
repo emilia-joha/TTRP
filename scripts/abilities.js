@@ -103,8 +103,8 @@ $("#background").on("change", function () {
       );
     }
   });
-  // kom ihåg vilken som var vald ifall man byter
   recalculateAbilities();
+  // kom ihåg vilken som var vald ifall man byter
   previousSelectedBackground = background.name;
 });
 
@@ -128,15 +128,16 @@ $("#race").change(function () {
 
 function recalculateAbilities() {
   // Sätt alla ability scores till rätt värden, baserade på stat, prof, expertise
+  const profBonus = Number($("#proficiency_bonus").text());
+
   for (const skill of skills) {
     const [_, __, profId, expertId, skillId, statModifier] = skill;
 
-    const profBonus = $("#proficiency_bonus").text();
     const isProficient = $(`#${profId}`).is(":checked");
     const isExpert = $(`#${expertId}`).is(":checked");
-    const statValue = $(`#${statModifier}`).val();
+    const statValue = Number($(`#${statModifier}`).text());
 
-    let calculatedAbility = Number(statValue);
+    let calculatedAbility = statValue;
     if (isProficient) calculatedAbility += profBonus;
     if (isProficient && isExpert) calculatedAbility += profBonus;
 

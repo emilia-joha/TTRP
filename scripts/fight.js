@@ -47,16 +47,3 @@ $("#class").change(function () {
   // kom ihåg vilken som var vald ifall man byter
   previousSelectedClass = classs.name;
 });
-
-$(".proficiency").change(function () {
-  //ändra
-  const profBonus = $("#proficiency_bonus").text();
-  const savingThrow = $(this).siblings("p").text();
-  $(this).siblings("p").empty();
-
-  const savingThrowProf =
-    Number(savingThrow) +
-    (this.checked ? Number(profBonus) : -Number(profBonus));
-
-  $(this).siblings("p").text(savingThrowProf);
-});

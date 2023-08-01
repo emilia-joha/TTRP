@@ -5,7 +5,7 @@ export const skills = [
     "proficiency_skill_acrobatics",
     "expertise_skill_acrobatics",
     "skill_acrobatics",
-    "dexterity_ability_modifier",
+    "ability_modifier_dexterity",
   ],
   [
     "Animal Handling",
