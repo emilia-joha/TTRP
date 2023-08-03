@@ -22,6 +22,7 @@ $("#ability_strength").keyup(function () {
   const modifier = abilityCalc(abilityStrength);
   $("#ability_modifier_strength").text(modifier);
   recalculateAbilities();
+  recalculateSavingThrow();
 });
 
 $("#ability_dexterity").keyup(function () {
@@ -29,6 +30,7 @@ $("#ability_dexterity").keyup(function () {
   const modifier = abilityCalc(ability);
   $("#ability_modifier_dexterity").text(modifier);
   recalculateAbilities();
+  recalculateSavingThrow();
 });
 
 $("#ability_constitution").keyup(function () {
@@ -36,6 +38,7 @@ $("#ability_constitution").keyup(function () {
   const modifier = abilityCalc(ability);
   $("#ability_modifier_constitution").text(modifier);
   recalculateAbilities();
+  recalculateSavingThrow();
 });
 
 $("#ability_intelligence").keyup(function () {
@@ -43,6 +46,7 @@ $("#ability_intelligence").keyup(function () {
   const modifier = abilityCalc(ability);
   $("#ability_modifier_intelligence").text(modifier);
   recalculateAbilities();
+  recalculateSavingThrow();
   passiveInvestigation();
 });
 
@@ -51,6 +55,7 @@ $("#ability_wisdom").keyup(function () {
   const modifier = abilityCalc(ability);
   $("#ability_modifier_wisdom").text(modifier);
   recalculateAbilities();
+  recalculateSavingThrow();
   passivePerception();
   passiveInsight();
 });
@@ -60,6 +65,7 @@ $("#ability_charisma").keyup(function () {
   const modifier = abilityCalc(ability);
   $("#ability_modifier_charisma").text(modifier);
   recalculateAbilities();
+  recalculateSavingThrow();
 });
 
 $("#level").on("change", function () {
@@ -67,6 +73,7 @@ $("#level").on("change", function () {
   const profBonus = proficiency(selectedlevel);
   $("#proficiency_bonus").text(profBonus);
   recalculateAbilities();
+  recalculateSavingThrow();
 });
 
 let previousSelectedBackground = null;
@@ -125,6 +132,36 @@ $("#race").change(function () {
     $("#darkvision").val(`${race.darkvision} feet`);
   }
 });
+
+$("saving_throw").change(function () {
+  recalculateSavingThrow();
+});
+
+function recalculateSavingThrow() {
+  // Sätt alla ability scores till rätt värden, baserade på stat, prof, expertise
+  const profBonus = Number($("#proficiency_bonus").text());
+
+  const abilities = [
+    "strength",
+    "dexterity",
+    "constitution",
+    "intelligence",
+    "wisdom",
+    "charisma",
+  ];
+
+  for (const ability of abilities) {
+    const isProficient = $(`#proficiency_saving_throws_${ability}`).is(
+      ":checked"
+    );
+    const statValue = Number($(`#ability_modifier_${ability}`).text());
+
+    let calculatedAbility = statValue;
+    if (isProficient) calculatedAbility += profBonus;
+    $(`#saving_throws_${ability}`).empty();
+    $(`#saving_throws_${ability}`).text(calculatedAbility);
+  }
+}
 
 function recalculateAbilities() {
   // Sätt alla ability scores till rätt värden, baserade på stat, prof, expertise

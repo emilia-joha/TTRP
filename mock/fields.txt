@@ -21,18 +21,18 @@ const fields = [
                   'ability_modifier_charisma',
   'spell_save_dc',
                     'proficiency_bonus',
-  'proficiency_saving_throws_strength',
-  'saving_throws_strength',
-  'proficiency_saving_throws_dexterity',
-  'saving_throws_dexterity',
-  'proficiency_saving_throws_constitution',
-  'saving_throws_constitution',
-  'proficiency_saving_throws_intelligence',
-  'saving_throws_intelligence',
-  'proficiency_saving_throws_wisdom',
-  'saving_throws_wisdom',
-  'proficiency_saving_throws_charisma',
-  'saving_throws_charisma',
+                    'proficiency_saving_throws_strength',
+                    'saving_throws_strength',
+                    'proficiency_saving_throws_dexterity',
+                    'saving_throws_dexterity',
+                    'proficiency_saving_throws_constitution',
+                    'saving_throws_constitution',
+                    'proficiency_saving_throws_intelligence',
+                    'saving_throws_intelligence',
+                    'proficiency_saving_throws_wisdom',
+                    'saving_throws_wisdom',
+                    'proficiency_saving_throws_charisma',
+                    'saving_throws_charisma',
                     'proficiency_skill_acrobatics',
                     'expertise_skill_acrobatics',
                     'skill_acrobatics',
@@ -136,3 +136,8 @@ Lägg till:
 darkvison
 subclass
 inventory
+weapon_name
+type
+attack_bonus
+damage
+property
