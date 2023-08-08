@@ -24,7 +24,6 @@ const levelHTML = [];
 for (let i = 1; i <= 20; i++) {
   levelHTML.push(`<option value="${i}">${i}</option>`);
 }
-
 const levelHTMLAsText = levelHTML.join("");
 $("#level").append(levelHTMLAsText);
 
@@ -42,6 +41,27 @@ $("#class").on("change", function () {
       });
       const subClassHTMLAsText = subClassHTML.join("");
       $("#subclass").append(subClassHTMLAsText);
+    }
+  });
+});
+
+export let race = null;
+
+$("#race").on("change", function () {
+  const selectedRace = $(this).val();
+  race = races.find((x) => x.name == selectedRace);
+
+  if ($("#subrace").children().length > 1) {
+    $("#subrace").children().remove();
+  }
+
+  races.map(function (race) {
+    if (race.name == selectedRace) {
+      const subraceHTML = race.subclasses.map(function (subrace) {
+        return `<option value="${subrace.name}">${subrace.name}</option>`;
+      });
+      const subraceHTMLAsText = subraceHTML.join("");
+      $("#subrace").append(subraceHTMLAsText);
     }
   });
 });

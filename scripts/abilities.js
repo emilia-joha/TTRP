@@ -1,6 +1,7 @@
 import { backgrounds } from "../data/backgrounds.js";
 import { skills } from "../data/skills.js";
 import { races } from "../data/races.js";
+import { race } from "./character_info.js";
 
 const skillHTML = skills.map(function (skill) {
   return `
@@ -122,14 +123,14 @@ $(".proficiency, .expertise").change(function () {
   passiveInvestigation();
 });
 
-$("#race").change(function () {
-  // raser ger stats också, men måste göras manuellt just nu
-  // varning: vissa raser har "random stat" i datan.
+$("#subrace").change(function () {
   $("#darkvision").val("");
-  const selectedRace = $(this).val();
-  const race = races.find((x) => x.name == selectedRace);
-  if (race.darkvision != 0) {
-    $("#darkvision").val(`${race.darkvision} feet`);
+  const selectedSubrace = $(this).val();
+  const subrace = race?.subclasses.find((x) => x.name == selectedSubrace);
+
+  console.log(race);
+  if (subrace.darkvision != 0) {
+    $("#darkvision").val(`${subrace.darkvision} feet`);
   }
 });
 
@@ -211,3 +212,11 @@ function proficiency(lvl) {
 
 //Lägg till text on hover som förklarar expertice och proficiency check box
 //https://www.w3schools.com/howto/howto_css_tooltip.asp
+
+//TODO: vissa raser har weapon prof. bonus
+//TODO: vissa subklasser har annan walking speed.
+//TODO: Spara valda variabler och exportera vidareS
+// har vissa subraser proficiensys i skills?
+
+// raser ger stats också, men måste göras manuellt just nu
+// varning: vissa raser har "random stat" i datan.

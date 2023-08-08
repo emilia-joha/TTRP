@@ -96,14 +96,14 @@ const fields = [
                     'hit_point_maximum',
                     'current_hit_points',
                     'temporary_hit_points',
-                'total_hit_dice',
-                'hit_dice',
-  'death_success_1',
-  'death_success_2',
-  'death_success_3',
-  'death_fail_1',
-  'death_fail_2',
-  'death_fail_3',
+                    'total_hit_dice',
+                    'hit_dice',
+                    'death_success_1',
+                    'death_success_2',
+                    'death_success_3',
+                    'death_fail_1',
+                    'death_fail_2',
+                    'death_fail_3',
   'attack_spellcasting_name_1',
   'attack_spellcasting_name_2',
   'attack_spellcasting_name_3',
@@ -136,8 +136,9 @@ Lägg till:
 darkvison
 subclass
 inventory
-weapon_name
-type
-attack_bonus
-damage
-property
+weapon_name   + Number
+type          + Number
+attack_bonus  + Number
+damage        + Number
+property      + Number
+exhaustion_1-6
