@@ -19,7 +19,7 @@ const fields = [
                   'ability_modifier_wisdom',
                   'ability_charisma',
                   'ability_modifier_charisma',
-  'spell_save_dc',
+                    'spell_save_dc',
                     'proficiency_bonus',
                     'proficiency_saving_throws_strength',
                     'saving_throws_strength',
@@ -142,3 +142,5 @@ attack_bonus  + Number
 damage        + Number
 property      + Number
 exhaustion_1-6
+spell_attack_modifier
+spellcasting_Ability

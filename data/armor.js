@@ -1,4 +1,4 @@
-module.exports = [
+export const armors = [
   {
     name: "Cloth",
     ac: 10,

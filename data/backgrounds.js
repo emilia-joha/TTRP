@@ -1,19 +1,6 @@
-import {languages} from "./languages.js"
-import {tools} from "./tools.js";
-
-function two(array) {
-  return [array, array];
-}
-
-function one(array) {
-  return [array];
-}
-
 export const backgrounds = [
   {
     name: "Acolyte",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Insight", "Religion"],
     traits: [
       "I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.",
@@ -52,8 +39,6 @@ export const backgrounds = [
   },
   {
     name: "Anthropologist",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Insight", "Religion"],
     traits: [
       "I prefer the company of those who aren't like me, including people of other races.",
@@ -90,8 +75,6 @@ export const backgrounds = [
   },
   {
     name: "Archaeologist",
-    tools: [["Catrographer's tools", "Navigator's tools"]],
-    languages: one(languages),
     proficiencies: ["History", "Survival"],
     traits: [
       "I love a good puzzle or mystery.",
@@ -130,8 +113,6 @@ export const backgrounds = [
   },
   {
     name: "Athlete",
-    tools: ["Vehicles (Land)"],
-    languages: one(languages),
     proficiencies: ["Acrobatics", "Athletics"],
     traits: [
       "I feel most at peace during physical exertion, whether exercise or battle.",
@@ -168,8 +149,6 @@ export const backgrounds = [
   },
   {
     name: "Charlatan",
-    tools: ["Disguse kit", "Forgery kit"],
-    languages: [],
     proficiencies: ["Deception", "Sleight of Hand"],
     traits: [
       "I fall in and out of love easily, and am always pursuing someone.",
@@ -206,8 +185,6 @@ export const backgrounds = [
   },
   {
     name: "City Watch",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Athletics", "Insight"],
     traits: [
       "I'm always polite and respectful.",
@@ -244,8 +221,6 @@ export const backgrounds = [
   },
   {
     name: "Clan Crafter",
-    tools: one(tools.artisan),
-    languages: ["Dwarvish"],
     proficiencies: ["History", "Insight"],
     traits: [
       "I always want to know how things work and what makes people tick.",
@@ -282,8 +257,6 @@ export const backgrounds = [
   },
   {
     name: "Cloistered Scholar",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["History", ["Arcana", "Nature", "Religion"]],
     traits: [
       "I'm used to helping out those who aren't as smart as I am, and I patiently explain anything and everything to others.",
@@ -320,8 +293,6 @@ export const backgrounds = [
   },
   {
     name: "Courtier",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Insight", "Persuasion"],
     traits: [
       "I always want to know how things work and what makes people tick.",
@@ -358,8 +329,6 @@ export const backgrounds = [
   },
   {
     name: "Criminal",
-    tools: [tools.gaming, "Thieves' tools"],
-    languages: [],
     proficiencies: ["Deception", "Stealth"],
     traits: [
       "I always have a plan for what to do when things go wrong.",
@@ -396,8 +365,6 @@ export const backgrounds = [
   },
   {
     name: "Entertainer",
-    tools: ["Disguise kit", tools.musical],
-    languages: [],
     proficiencies: ["Acrobatics", "Performance"],
     traits: [
       "I know a story relevant to almost every situation.",
@@ -434,8 +401,6 @@ export const backgrounds = [
   },
   {
     name: "Faceless",
-    tools: ["Disguise kit"],
-    languages: one(languages),
     proficiencies: ["Deception", "Intimidation"],
     traits: [
       "I'm earnest and uncommonly direct.",
@@ -472,8 +437,6 @@ export const backgrounds = [
   },
   {
     name: "Faction Agent",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Insight", ["Intelligence", "Wisdom", "Charisma"]],
     traits: [
       "I see omens in every event and action. The gods try to speak to us, we just need to listen.",
@@ -510,8 +473,6 @@ export const backgrounds = [
   },
   {
     name: "Far Traveler",
-    tools: one([...tools.musical, ...tools.gaming]),
-    languages: one(languages),
     proficiencies: ["Insight", "Perception"],
     traits: [
       "I have different assumptions from those around me concerning personal space, blithely invading others' space in innocence, or reacting to ignorant invasion of my own.",
@@ -548,8 +509,6 @@ export const backgrounds = [
   },
   {
     name: "Feylost",
-    tools: one(tools.musical),
-    languages: ["Elvish", "Gnomish", "Goblin", "Sylvan"],
     proficiencies: ["Deception", "Survival"],
     traits: [
       "I'm haunted by fey laughter that only I can hear, though I know it's just my mind playing tricks on me.",
@@ -586,8 +545,6 @@ export const backgrounds = [
   },
   {
     name: "Fisher",
-    tools: [],
-    languages: one(languages),
     proficiencies: ["History", "Survival"],
     traits: [
       "I am unmoved by the wrath of nature.",
@@ -624,8 +581,6 @@ export const backgrounds = [
   },
   {
     name: "Folk Hero",
-    tools: ["Vehicles (Land)", tools.artisan],
-    languages: [],
     proficiencies: ["Animal Handling", "Survival"],
     traits: [
       "I judge people by their actions, not their words.",
@@ -662,8 +617,6 @@ export const backgrounds = [
   },
   {
     name: "Entertainer",
-    tools: ["Disguise kit", tools.musical],
-    languages: [],
     proficiencies: ["Acrobatics", "Performance"],
     traits: [
       "I know a story relevant to almost every situation.",
@@ -700,8 +653,6 @@ export const backgrounds = [
   },
   {
     name: "Gladiator",
-    tools: ["Disguise kit", tools.musical],
-    languages: [],
     proficiencies: ["Acrobatics", "Performance"],
     traits: [
       "I'm a hopeless romantic, always searching for that <special someone.>",
@@ -738,8 +689,6 @@ export const backgrounds = [
   },
   {
     name: "Guild Artisan",
-    tools: one(tools.artisan),
-    languages: one(languages),
     proficiencies: ["Insight", "Persuasion"],
     traits: [
       "I believe that anything worth doing is worth doing right. I can't help it – I'm a perfectionist.",
@@ -776,8 +725,6 @@ export const backgrounds = [
   },
   {
     name: "Guild Merchant",
-    tools: one(tools.artisan),
-    languages: one(languages),
     proficiencies: ["Insight", "Persuasion"],
     traits: [
       "I believe that anything worth doing is worth doing right. I can't help it – I'm a perfectionist.",
@@ -814,11 +761,6 @@ export const backgrounds = [
   },
   {
     name: "Haunted One",
-    tools: [],
-    languages: [
-      languages,
-      ["Abyssal", "Celestial", "Deep Speech", "Draconic", "Infernal", "Primordial", "Sylvan", "Undercommon"],
-    ],
     proficiencies: [
       ["Arcana", "Investigation", "Religion", " Survival"],
       ["Arcana", "Investigation", "Religion", " Survival"],
@@ -858,8 +800,6 @@ export const backgrounds = [
   },
   {
     name: "Hermit",
-    tools: ["Herbalism kit"],
-    languages: one(languages),
     proficiencies: ["Medicine", "Religion"],
     traits: [
       "I've been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.",
@@ -896,24 +836,6 @@ export const backgrounds = [
   },
   {
     name: "House Agent",
-    tools: [
-      [
-        "House Cannith: Alchemist's supplies & Tinker's tools",
-        "House Deneith: One gaming set & Vehicles (Land)",
-        "House Ghallanda: Brewer's supplies & Cook's utensils",
-        "House Jorasco: Alchemist's supplies & Herbalism kit",
-        "House Kundarak: Thieves' tools & Tinker's tools",
-        "House Lyrandar: Navigator's tools & Vehicles (Air and Sea)",
-        "House Medani: Disguise kit & Thieves' tools",
-        "House Orien: One gaming set & Vehicles (Land)",
-        "House Phiarlan: Disguise kit & one Musical instrument",
-        "House Sivis: Calligrapher's tools & Forgery kit",
-        "House Tharashk: One gaming set & Thieves' tools",
-        "House Thuranni: One musical instrument & Poisoner's kit",
-        "House Vadalis: Herbalism kit & Vehicles (Land)",
-      ],
-    ],
-    languages: [],
     proficiencies: ["Investigation", "Persuasion"],
     traits: [
       "I'm always looking to improve efficiency.",
@@ -950,8 +872,6 @@ export const backgrounds = [
   },
   {
     name: "Inheritor",
-    tools: one([...tools.musical, ...tools.gaming]),
-    languages: one(languages),
     proficiencies: ["Survival", ["Arcana", "History", "Religion"]],
     traits: [
       "When I set my mind to something, I follow through no matter what gets in my way.",
@@ -988,8 +908,6 @@ export const backgrounds = [
   },
   {
     name: "City Watch",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Athletics", "Insight"],
     traits: [
       "I've lost too many friends, and I'm slow to make new ones.",
@@ -1026,8 +944,6 @@ export const backgrounds = [
   },
   {
     name: "Investigator (VRGR)",
-    tools: ["Disguise kit", "Thieves' tools"],
-    languages: [],
     proficiencies: two(["Insight", "Investigation", "Perception"]),
     traits: [
       "I've lost too many friends, and I'm slow to make new ones.",
@@ -1064,8 +980,6 @@ export const backgrounds = [
   },
   {
     name: "Knight",
-    tools: one(tools.gaming),
-    languages: one(languages),
     proficiencies: ["History", "Persuasion"],
     traits: [
       "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
@@ -1104,8 +1018,6 @@ export const backgrounds = [
   },
   {
     name: "Knight of the Order",
-    tools: one([...tools.musical, ...tools.gaming]),
-    languages: one(languages),
     proficiencies: ["Persuasion", ["Arcana", "History", "Nature", "Religion"]],
     traits: [
       "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
@@ -1144,8 +1056,6 @@ export const backgrounds = [
   },
   {
     name: "Marine",
-    tools: ["Vehicles (Land and Water)"],
-    languages: [],
     proficiencies: ["Athletics", "Survival"],
     traits: [
       "I speak rarely but mean every word I say.",
@@ -1182,8 +1092,6 @@ export const backgrounds = [
   },
   {
     name: "Mercenary Veteran",
-    tools: [tools.gaming, "Vehicles (Land)"],
-    languages: [],
     proficiencies: ["Athletics", "Persuasion"],
     traits: [
       "I'm always polite and respectful.",
@@ -1220,8 +1128,6 @@ export const backgrounds = [
   },
   {
     name: "Noble",
-    tools: one(tools.gaming),
-    languages: one(languages),
     proficiencies: ["History", "Persuasion"],
     traits: [
       "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
@@ -1260,8 +1166,6 @@ export const backgrounds = [
   },
   {
     name: "Outlander",
-    tools: one(tools.musical),
-    languages: one(languages),
     proficiencies: ["Athletics", "Survival"],
     traits: [
       "I'm driven by a wanderlust that led me away from home.",
@@ -1300,8 +1204,6 @@ export const backgrounds = [
   },
   {
     name: "Pirate",
-    tools: ["Navigator's tools", "Vehicles (Water)"],
-    languages: [],
     proficiencies: ["Athletics", "Perception"],
     traits: [
       "My friends know they can rely on me, no matter what.",
@@ -1340,8 +1242,6 @@ export const backgrounds = [
   },
   {
     name: "Sage",
-    tools: [],
-    languages: two(languages),
     proficiencies: ["Arcana", "History"],
     traits: [
       "I use polysyllabic words that convey the impression of great erudition.",
@@ -1380,8 +1280,6 @@ export const backgrounds = [
   },
   {
     name: "Sailor",
-    tools: ["Navigator's tools", "Vehicles (Water)"],
-    languages: [],
     proficiencies: ["Athletics", "Perception"],
     traits: [
       "My friends know they can rely on me, no matter what.",
@@ -1420,8 +1318,6 @@ export const backgrounds = [
   },
   {
     name: "Shipwright",
-    tools: ["Carpenter's tools", "Vehicles (Water)"],
-    languages: [],
     proficiencies: ["History", "Perception"],
     traits: [
       "I love talking and being heard more than I like to listen.",
@@ -1460,8 +1356,6 @@ export const backgrounds = [
   },
   {
     name: "Smuggler",
-    tools: ["Vehicles (Water)"],
-    languages: [],
     proficiencies: ["Athletics", "Deception"],
     traits: [
       "I love being on the water but hate fishing.",
@@ -1500,8 +1394,6 @@ export const backgrounds = [
   },
   {
     name: "Soldier",
-    tools: [tools.gaming, "Vehicles (Land)"],
-    languages: [],
     proficiencies: ["Athletics", "Intimidation"],
     traits: [
       "I'm always polite and respectful.",
@@ -1538,8 +1430,6 @@ export const backgrounds = [
   },
   {
     name: "Spy",
-    tools: [tools.gaming, "Thieves' tools"],
-    languages: [],
     proficiencies: ["Deception", "Stealth"],
     traits: [
       "The first thing I do in a new place is note the locations of everything valuable – or where such things could be hidden.",
@@ -1576,8 +1466,6 @@ export const backgrounds = [
   },
   {
     name: "Urban Bounty Hunter",
-    tools: two([...tools.gaming, ...tools.musical, "Thieves' tools"]),
-    languages: [],
     proficiencies: [
       ["Deception", "Insight", "Persuasion", "Stealth"],
       ["Deception", "Insight", "Persuasion", "Stealth"],
@@ -1617,8 +1505,6 @@ export const backgrounds = [
   },
   {
     name: "Urchin",
-    tools: ["Disguise kit", "Thieves' tools"],
-    languages: [],
     proficiencies: ["Sleight of Hand", "Stealth"],
     traits: [
       "I hide scraps of food and trinkets away in my pockets.",
@@ -1657,8 +1543,6 @@ export const backgrounds = [
   },
   {
     name: "Uthgardt Tribe Member",
-    tools: one([...tools.musical, ...tools.artisan]),
-    languages: one(languages),
     proficiencies: ["Athletics", "Survival"],
     traits: [
       "I once ran twenty-five miles without stopping to warn my clan of an approaching orc horde. I'd do it again if I had to.",
@@ -1695,8 +1579,6 @@ export const backgrounds = [
   },
   {
     name: "Waterdhavian Noble",
-    tools: one([...tools.gaming, ...tools.musical]),
-    languages: one(languages),
     proficiencies: ["History", "Persuasion"],
     traits: [
       "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
@@ -1733,8 +1615,6 @@ export const backgrounds = [
   },
   {
     name: "Witchlight Hand",
-    tools: one(["Disguise kit", ...tools.musical]),
-    languages: one(languages),
     proficiencies: ["Performance", "Sleight of Hand"],
     traits: [
       "I'm haunted by fey laughter that only I can hear, though I know it's just my mind playing tricks on me.",

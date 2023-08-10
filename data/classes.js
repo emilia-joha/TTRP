@@ -1,11 +1,8 @@
-import { tools } from "./tools.js";
-
 export const classes = [
   {
     name: "Artificer",
     armorProficiency: ["Light", "Medium", "Shield"],
     weaponProficiency: ["Simple"],
-    tools: ["Thieves' tools", "Tinker's tools", tools.artisan],
     savingThrows: ["Constitution", "Intelligence"],
     proficiencies: {
       choose: 2,
@@ -27,7 +24,6 @@ export const classes = [
     name: "Barbarian",
     armorProficiency: ["Light", "Medium", "Shield"],
     weaponProficiency: ["Simple", "Martial"],
-    tools: [],
     savingThrows: ["Strength", "Constitution"],
     proficiencies: {
       choose: 2,
@@ -64,7 +60,6 @@ export const classes = [
       "Rapier",
       "Shortsword",
     ],
-    tools: [tools.musical, tools.musical, tools.musical],
     savingThrows: ["Dexterity", "Charisma"],
     proficiencies: {
       choose: 3,
@@ -106,7 +101,6 @@ export const classes = [
     name: "Blood Hunter",
     armorProficiency: ["Light", "Medium", "Shield"],
     weaponProficiency: ["Simple", "Martial"],
-    tools: ["Alchemist supplies"],
     savingThrows: ["Dexterity", "Intelligence"],
     proficiencies: {
       choose: 3,
@@ -134,7 +128,6 @@ export const classes = [
     name: "Cleric",
     armorProficiency: ["Light", "Medium", "Shield"],
     weaponProficiency: ["Simple"],
-    tools: [],
     savingThrows: ["Wisdom", "Charisma"],
     proficiencies: {
       choose: 2,
@@ -174,7 +167,6 @@ export const classes = [
       "Sling",
       "Spear",
     ],
-    tools: ["Herbalism kit"],
     savingThrows: ["Intelligence", "Wisdom"],
     proficiencies: {
       choose: 2,
@@ -205,7 +197,6 @@ export const classes = [
     name: "Fighter",
     armorProficiency: ["Light", "Medium", "Heavy", "Shield"],
     weaponProficiency: ["Simple", "Martial"],
-    tools: [],
     savingThrows: ["Strength", "Constitution"],
     proficiencies: {
       choose: 2,
@@ -239,7 +230,6 @@ export const classes = [
     name: "Monk",
     armorProficiency: [],
     weaponProficiency: ["Simple", "Shortsword"],
-    tools: [[...tools.artisan, ...tools.musical]],
     savingThrows: ["Strength", "Dexterity"],
     proficiencies: {
       choose: 2,
@@ -271,7 +261,6 @@ export const classes = [
     name: "Paladin",
     armorProficiency: ["Light", "Medium", "Heavy", "Shield"],
     weaponProficiency: ["Simple", "Martial"],
-    tools: [],
     savingThrows: ["Wisdom", "Charisma"],
     proficiencies: {
       choose: 2,
@@ -302,7 +291,6 @@ export const classes = [
     name: "Ranger",
     armorProficiency: ["Light", "Medium", "Shield"],
     weaponProficiency: ["Simple", "Martial"],
-    tools: [],
     savingThrows: ["Strength", "Dexterity"],
     proficiencies: {
       choose: 3,
@@ -340,7 +328,6 @@ export const classes = [
       "Rapier",
       "Shortsword",
     ],
-    tools: ["Thieves' tools"],
     savingThrows: ["Dexterity", "Intelligence"],
     proficiencies: {
       choose: 4,
@@ -374,7 +361,6 @@ export const classes = [
   },
   {
     name: "Sorcerer",
-    tools: [],
     armorProficiency: [],
     weaponProficiency: [
       "Dagger",
@@ -412,7 +398,6 @@ export const classes = [
     name: "Warlock",
     armorProficiency: ["Light"],
     weaponProficiency: ["Simple"],
-    tools: [],
     savingThrows: ["Wisdom", "Charisma"],
     proficiencies: {
       choose: 2,
@@ -450,7 +435,6 @@ export const classes = [
       "Quarterstaff",
       "Light crossbow",
     ],
-    tools: [],
     savingThrows: ["Intelligence", "Wisdom"],
     proficiencies: {
       choose: 2,
