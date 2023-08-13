@@ -63,6 +63,11 @@ function weaponsAsHTML() {
 }
 $(`#weapon_name_${weaponNumber}`).append(weaponsAsHTML());
 
+$("#name").on("change", function () {
+  const name = $("#name").val();
+  $("#characterName").text(name);
+});
+
 $(`#weapon_name_${weaponNumber}`).on("change", function () {
   presentWeapon();
 });
@@ -75,9 +80,7 @@ $("#class").on("change", function () {
   const selectedClass = $(this).val();
   classs = classes.find((x) => x.name == selectedClass);
 
-  if ($("#subclass").children().length > 1) {
-    $("#subclass").children().remove();
-  }
+  $("#subclass").children().remove();
 
   classes.map(function (classs) {
     if (classs.name == selectedClass) {
@@ -85,7 +88,9 @@ $("#class").on("change", function () {
         return `<option value="${subClass}">${subClass}</option>`;
       });
       const subClassHTMLAsText = subClassHTML.join("");
-      $("#subclass").append(subClassHTMLAsText);
+      $("#subclass").append(
+        `<option value="">Select Subclass...</option>${subClassHTMLAsText}`
+      );
     }
   });
 
@@ -119,9 +124,7 @@ $("#race").on("change", function () {
   const selectedRace = $(this).val();
   race = races.find((x) => x.name == selectedRace);
 
-  if ($("#subrace").children().length > 1) {
-    $("#subrace").children().remove();
-  }
+  $("#subrace").children().remove();
 
   races.map(function (race) {
     if (race.name == selectedRace) {
@@ -129,7 +132,9 @@ $("#race").on("change", function () {
         return `<option value="${subrace.name}">${subrace.name}</option>`;
       });
       const subraceHTMLAsText = subraceHTML.join("");
-      $("#subrace").append(subraceHTMLAsText);
+      $("#subrace").append(
+        `<option value="">Select Subrace...</option>${subraceHTMLAsText}`
+      );
     }
   });
 });
@@ -189,7 +194,7 @@ $("#background").on("change", function () {
       $(`#proficiency_skill_${profLower}`).prop("checked", false);
     } else {
       alert(
-        `Please remove the proficiency you chose of the following skill proficiencies: ${prof.join(
+        `Please remove the proficiency you chose of the following skill proficiencies, ${prof.join(
           ", "
         )}`
       );
@@ -203,7 +208,7 @@ $("#background").on("change", function () {
       $(`#proficiency_skill_${profLower}`).prop("checked", true);
     } else {
       alert(
-        `Choose one of the following skill proficiencies: ${prof.join(", ")}`
+        `Choose from the following skill proficiencies, ${prof.join(", ")}`
       );
     }
   });
@@ -325,15 +330,13 @@ $("#armor").change(function () {
   calcArmor();
 });
 
-//
-
 function calcArmor() {
   const selectedArmor = $("#armor").val();
   const dexModifier = $("#ability_modifier_dexterity").text();
 
   if (selectedArmor && dexModifier) {
     const armor = armors.find((a) => a.name == selectedArmor);
-    const armorDex = 0;
+    let armorDex = 0;
 
     if (dexModifier <= armor.maxDex) {
       armorDex = dexModifier;
@@ -341,9 +344,10 @@ function calcArmor() {
       armorDex = armor.maxDex;
     }
 
-    const armorClass = armor.ac + armorDex;
-
+    const armorClass = Number(armor.ac) + Number(armorDex);
+    $("#armor_class").empty();
     $("#armor_class").val(armorClass);
+    $("#shield_to_ac").prop("checked", false);
   }
 }
 
@@ -412,7 +416,16 @@ function passiveInvestigation() {
 }
 
 function abilityCalc(ability) {
-  return Math.floor((ability - 10) / 2);
+  if (ability.includes("+")) {
+    const abilityList = ability.split("+");
+    let sum = 0;
+    for (let a of abilityList) {
+      sum += Number(a);
+    }
+    return Math.floor((sum - 10) / 2);
+  } else {
+    return Math.floor((ability - 10) / 2);
+  }
 }
 
 function proficiency(lvl) {
@@ -504,7 +517,6 @@ function addStats() {
 
       if (spellcastingAbility && stat == "two") {
         value = $(`#ability_${spellcastingAbility}`).val();
-        console.log(value);
         $(`#ability_${spellcastingAbility}`).val(`${value}+${val}`);
       } else {
         value = $(`#ability_${savingThrows[num].toLowerCase()}`).val();
@@ -519,10 +531,15 @@ function addStats() {
 }
 
 function calcSpells() {
-  const spellcastingAbility = classs.spellcastingAbility;
-  const modifier = $(
-    `#ability_modifier_${spellcastingAbility.toLowerCase()}`
-  ).text();
+  const spellcastingAbility = classs?.spellcastingAbility;
+
+  let modifier = null;
+
+  if (spellcastingAbility) {
+    modifier = $(
+      `#ability_modifier_${spellcastingAbility.toLowerCase()}`
+    ).text();
+  }
   const profBonus = $("#proficiency_bonus").text();
 
   if (modifier && profBonus && classs) {
@@ -536,6 +553,8 @@ function calcSpells() {
 }
 
 function presentArmor() {
+  $("#armor").empty();
+
   const armorList = classs.armorProficiency;
 
   const profArmors = armors.filter(function (a) {
@@ -543,17 +562,40 @@ function presentArmor() {
   });
 
   const armorHTML = profArmors.map(function (a) {
+    22;
     return `<option value="${a.name}">${a.name}</option>`;
   });
 
+  $("#shield").empty();
+  if (armorList.includes("Shield")) {
+    $("#shield").append(
+      '<label><input type="checkbox" id="shield_to_ac">Shield</label>'
+    );
+
+    $("#shield_to_ac").change(function () {
+      const hasShield = $(`#shield_to_ac`).is(":checked");
+
+      const AC = $("#armor_class").val();
+
+      if (hasShield) {
+        if (AC == "") {
+          $("#armor_class").val(2);
+        } else {
+          $("#armor_class").val(Number(AC) + 2);
+        }
+      } else {
+        $("#armor_class").val(Number(AC) - 2);
+      }
+    });
+  }
+
   const armorHTMLAsText = armorHTML.join("");
-  $("#armor").append(armorHTMLAsText);
+  $("#armor").append(
+    `<option value="">Select Armor...</option>${armorHTMLAsText}`
+  );
 }
 
 //Lägg till text on hover som förklarar expertice och proficiency check box
 //https://www.w3schools.com/howto/howto_css_tooltip.asp
 
-//TODO: select... ska alltid finnas överst i alla select boxar
 //TODO: lägga till multiclass
-//TODO: räkna om modifiern med +en från ras stats
-//TODO: checkbox till shield och recalculate ac
