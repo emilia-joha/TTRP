@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <head></head>
 <body>
-    <label>
-        <input type="text" id="name">
+    <label class="whole_width">
+        <input type="text" id="name" >
         Name
     </label>
-    <label>
-        <select id="race">
-            <option value="">Select Race...</option>
-        </select>
-        Race
-    </label>
-    <label>
-        <select id="subrace">
-            <option value="">Select Subace...</option>
-        </select>
-        Subrace
-    </label>
-    <label>
-        <select id="background">
+    <div class="two_box">
+        <label class="half_width">
+            <select id="race" >
+                <option value="">Select Race...</option>
+            </select>
+            Race
+        </label>
+        <label class="half_width">
+            <select id="subrace" >
+                <option value="">Select Subace...</option>
+            </select>
+            Subrace
+        </label>
+    </div>
+    <label class="whole_width">
+        <select id="background" >
             <option value="">Select Background...</option>
         </select>
         Background
     </label>
     <div class="classBox">
-        <label>
-            <select id="class">
+        <div class="two_box">
+            <label class="half_width">
+            <select id="class" >
                 <option value="">Select Class...</option>
             </select>
             Class
-        </label>
-        <label>
-            <select id="subclass">
-                <option value="">Select Subclass</option>
-            </select>
-            Subclass
-        </label>
-        <label>
-            <select id="level">
+            </label>
+            <label class="half_width">
+                <select id="subclass" >
+                    <option value="">Select Subclass</option>
+                </select>
+                Subclass
+            </label>
+        </div>
+        <label class="whole_width">
+            <select id="level" >
                 <option value="">Select Level...</option>
             </select>
             Level
         </label>
-        <button id="addClass">Add Class</button>
+        <div class="button_box">
+            <button id="addClass">Add Class</button>
+        </div>
     </div>
 </body>
 </html>

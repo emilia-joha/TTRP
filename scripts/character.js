@@ -48,11 +48,10 @@ const skillHTML = skills.map(function (skill) {
               <p id="${skill[4]}" class="${skill[1]}"> </p>
               ${skill[0]} (${skill[1]})
           </label>
-          <hr>
       </div>`;
 });
 const htmlAsText = skillHTML.join("");
-$("#skills").html(htmlAsText);
+$("#skills").append(htmlAsText);
 
 function weaponsAsHTML() {
   return weapons
@@ -595,7 +594,9 @@ function presentArmor() {
   );
 }
 
-//Lägg till text on hover som förklarar expertice och proficiency check box
+// TODO: Lägg till text on hover som förklarar expertice och proficiency check box
 //https://www.w3schools.com/howto/howto_css_tooltip.asp
 
 //TODO: lägga till multiclass
+
+//TODO: Lägga till knapp som fäller tillbaka section
