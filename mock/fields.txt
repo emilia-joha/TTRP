@@ -158,5 +158,5 @@ flaw
 loves
 hates
 social_behaviors
-hobby_and_intrests
+hobby_and_interests
 backstory

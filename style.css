@@ -8,7 +8,7 @@ body{
 }
 
 section{
-    width: 90%;
+    width: 92%;
     max-width: 620px;
     min-height: 50px;
     background-color: #E1EAC9;
@@ -31,11 +31,16 @@ header{
     padding: 16px 20%;
 }
 
+.label_p {
+    text-align: center;
+    margin: 0;
+}
+
 label{
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 15px 15px;
+    padding: 25px 15px;
     align-items: center;
     font-size: 14px;
 }
@@ -47,7 +52,7 @@ label{
     font-weight: bold;
 }
 
-.abilities, #proficiency_bonus {
+.abilities, #proficiency_bonus, #dice {
     background-color: white;
     height: 80px;
     width: 100%;
@@ -59,12 +64,24 @@ label{
     align-items: center;
     font-size: 20px;
 }
-.abilities div{
+
+
+
+.abilities div, #hit_dice {
     height: inherit;
     width: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+
+#total_hit_dice {
+    box-shadow: none;
+    border-radius:  5px 5px 0 0;
+    border-bottom: #E1EAC9 2px solid;
+    height: 80px;
 }
 
 .abilities input {
@@ -73,26 +90,23 @@ label{
     border-top: #E1EAC9 2px solid;
 }
 
-#skills {
+#skills, #saving_throws {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
 }
 
-#skills label {
+#skills label, #saving_throws label  {
     display: flex;
     flex-direction: row;
+    padding: 5px 15px;
 }
 
 input[type="checkbox"] {
-width: 25px;
-height: 25px;
-margin: 0 10px;
-background-color: white;
-outline: none;
-box-shadow: none;
+    width: 28px;
+    height: 28px;
+    margin: 0 10px;
+    box-shadow: 0 0 5px 0 #283529;
 }
 
 
@@ -102,14 +116,14 @@ box-shadow: none;
     padding: 5px;
 }
 
-.skill > label > p {
+.skill > label > p, .saving_throw > label > p {
     width: 30px;
     margin: 0;
     padding: 0 10px 0 0;
     height: 14px;
 }
 
-.passive {
+.passive, .spellcasting {
     height: 25px;
     background-color: white;
     border-radius: 5px;
@@ -119,8 +133,37 @@ box-shadow: none;
     align-items: center;
 }
 
-#proficiencies_languages {
+#proficiencies_languages, #inventory, #equipment, #backstory {
     min-height: 80px;
+}
+
+.two_input {
+    box-shadow: 0 0 8px 0 #283529;
+    border-radius: 5px;
+}
+
+#current_hit_points {
+    box-shadow: none;
+    height: 40px;
+    border-radius: 5px 5px 0 0;
+}
+
+#hit_point_maximum {
+    box-shadow: none;
+    height: 40px;
+    border-radius: 0 0 5px 5px;
+    border-top: #E1EAC9 2px solid;
+}
+#death_saves label {
+    padding-bottom: 0;
+}
+
+.weapon {
+    padding: 15px 0;
+}
+
+.weapon label {
+    padding: 5px 15px;
 }
 
 .whole_width{
@@ -141,11 +184,17 @@ box-shadow: none;
 
 .two_box{
     display: flex;
+    flex-direction: row;
 }
 
 .center_box {
 display: flex;
 justify-content: center;
+}
+
+.align_center_box {
+    display: flex;
+    align-items: center;
 }
 
 select {
@@ -156,6 +205,7 @@ select {
 input{
     font-size: 14px;
 }
+
 
 input, select, textarea{
     width: 100%;
@@ -172,6 +222,7 @@ textarea:focus {
 
 textarea {
     resize: vertical;
+    text-align: left;
 }
 
 input:focus-visible, select:focus-visible {
@@ -192,8 +243,8 @@ button {
     background-color: #717959;
     border: none;
     border-radius: 5px;
-    padding: 5px;
-    margin: 15px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
     cursor: pointer;

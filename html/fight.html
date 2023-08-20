@@ -1,126 +1,161 @@
 <!DOCTYPE html>
 <head></head>
 <body>
-    <label>
-        <input id="armor_class" type="text">
-        Armor Class
-    </label>
-    <label>
-        <input id="initiative" type="text">
-        Initiative
-    </label>
-    <label>
-        <input id="speed" type="text">
-        Speed
-    </label>
-    <label>
-        <div>
-            <input id="total_hit_dice" type="text">
-            <div id="hit_dice"></div>
+    <div class="two_box">
+        <label class="one_thirds">
+            <input id="armor_class" type="text">
+            Armor Class
+        </label>
+        <label class="one_thirds">
+            <input id="initiative" type="text">
+            Initiative
+        </label>
+        <label class="one_thirds">
+            <input id="speed" type="text">
+            Speed
+        </label>
+    </div>
+    <div class="center_box">
+        <label class="half_width">
+            <div id="dice">
+                <input id="total_hit_dice" type="text">
+                <div id="hit_dice"></div>
+            </div>
+            Hit Dice
+        </label>
+    </div>
+    <div class="two_box align_center_box">
+        <label class="half_width">
+            <div class="two_input">
+                <input id="current_hit_points" type="text">
+                <input id="hit_point_maximum" type="text">
+            </div>
+            Hit Points
+        </label>
+        <label class="half_width">
+            <input id="temporary_hit_points" type="text">
+            Temporary Hit Points
+        </label>
+    </div>
+    <div class="center_box">
+        <div id="saving_throws">
+            <div class="saving_throw">
+                <label class="two_box">
+                    <input id="proficiency_saving_throws_strength" class="saving_throw" type="checkbox"/>
+                    <p id="saving_throws_strength"> </p>
+                    Strength
+                </label>
+            </div>
+            <div class="saving_throw">
+                <label class="two_box">
+                    <input id="proficiency_saving_throws_dexterity" type="checkbox"/>
+                    <p id="saving_throws_dexterity"> </p>
+                    Dexterity
+                </label>
+            </div>
+            <div class="saving_throw">
+                <label class="two_box">
+                    <input id="proficiency_saving_throws_constitution" type="checkbox"/>
+                    <p id="saving_throws_constitution"> </p>
+                    Constitution
+                </label>
+            </div>
+            <div class="saving_throw">
+                <label class="two_box">
+                    <input id="proficiency_saving_throws_intelligence" type="checkbox"/>
+                    <p id="saving_throws_intelligence"> </p>
+                    Intelligence
+                </label>
+            </div>
+            <div class="saving_throw">
+                <label class="two_box">
+                    <input id="proficiency_saving_throws_wisdom" type="checkbox"/>
+                    <p id="saving_throws_wisdom"> </p>
+                    Wisdom
+                </label>
+            </div>
+            <div class="saving_throw">
+                <label class="two_box">
+                    <input id="proficiency_saving_throws_charisma" type="checkbox"/>
+                    <p id="saving_throws_charisma"> </p>
+                    Charisma
+                </label>
+            </div>
         </div>
-        Hit Dice
-    </label>
-    <label>
-        <div>
-            <input id="current_hit_points" type="text">
-            <input id="hit_point_maximum" type="text">
-        </div>
-        Hit Points
-    </label>
-    <label>
-        <input id="temporary_hit_points" type="text">
-        Temporary Hit Points
-    </label>
-    <div>
-        <label>
-            <input id="proficiency_saving_throws_strength" class="saving_throw" type="checkbox"/>
-            <p id="saving_throws_strength"> </p>
-            Strength
-        </label>
-    </div>
-    <div>
-        <label>
-            <input id="proficiency_saving_throws_dexterity" class="saving_throw" type="checkbox"/>
-            <p id="saving_throws_dexterity"> </p>
-            Dexterity
-        </label>
-    </div>
-    <div>
-        <label>
-            <input id="proficiency_saving_throws_constitution" class="saving_throw" type="checkbox"/>
-            <p id="saving_throws_constitution"> </p>
-            Constitution
-        </label>
-    </div>
-    <div>
-        <label>
-            <input id="proficiency_saving_throws_intelligence" class="saving_throw" type="checkbox"/>
-            <p id="saving_throws_intelligence"> </p>
-            Intelligence
-        </label>
-    </div>
-    <div>
-        <label>
-            <input id="proficiency_saving_throws_wisdom" class="saving_throw" type="checkbox"/>
-            <p id="saving_throws_wisdom"> </p>
-            Wisdom
-        </label>
-    </div>
-    <div>
-        <label>
-            <input id="proficiency_saving_throws_charisma" class="saving_throw" type="checkbox"/>
-            <p id="saving_throws_charisma"> </p>
-            Charisma
-        </label>
     </div>
     <div id="weapons">
-        <div>
+        <div class="weapon">
+            <label class="whole_width">
                 <select id="weapon_name_0">
                     <option value="">Select Weapon...</option>
                 </select>
-                <input type="text" id="type_0">
-                <input type="text" id="attack_bonus_0">
-                <input type="text" id="damage_0">
-                <input type="text" id="property_0">
+            </label>
+            <div class="two_box">
+                <label class="half_width">
+                    <input type="text" id="type_0">
+                </label>
+                <label class="half_width">
+                    <input type="text" id="attack_bonus_0">
+                </label>
+            </div>
+            <div class="two_box">
+                <label class="half_width">
+                    <input type="text" id="damage_0">
+                </label>
+                <label class="half_width">
+                    <input type="text" id="property_0">
+                </label>
+            </div>  
         </div>
     </div>
-    <button id="add_weapon">Add Weapon</button>
-    <div>
-        <label>
-            <input type="checkbox" id="death_success_1">
-            <input type="checkbox" id="death_success_2">
-            <input type="checkbox" id="death_success_3">
-            Success
-        </label>
-        <label>
-            <input type="checkbox" id="death_fail_1">
-            <input type="checkbox" id="death_fail_2">
-            <input type="checkbox" id="death_fail_3">
-            Failure
-        </label>
-        Death Saves
+    <div class="button_box">
+        <button id="add_weapon">Add Weapon</button>
     </div>
+    <div class="two_box">
+        <label class="one_thirds">
+            <div id="spell_save_dc" class="spellcasting whole_width"></div>
+            <p class="label_p">Spell Save DC</p>
+        </label>
+        <label class="one_thirds">
+            <div id="spell_attack_modifier" class="spellcasting whole_width"></div>
+            <p class="label_p">Spell Attack Modifier</p>
+        </label>
+        <label class="one_thirds">
+            <div id="spellcasting_Ability" class="spellcasting whole_width"></div>
+            <p class="label_p">Spellcasting Ability</p>
+        </label>
+    </div>
+    <label id="death_saves">
+        <div class="two_box whole_width center_box">
+            <label >
+                <div class="two_box">
+                    <input type="checkbox" id="death_success_1">
+                    <input type="checkbox" id="death_success_2">
+                    <input type="checkbox" id="death_success_3">
+                </div>
+                Success
+            </label>
+            <label >
+                <div class="two_box center_box">
+                    <input type="checkbox" id="death_fail_1">
+                    <input type="checkbox" id="death_fail_2">
+                    <input type="checkbox" id="death_fail_3">
+                </div>
+                Failure
+            </label>
+        </div>
+        Death Saves
+    </label>
     <label>
-        <input type="checkbox" id="exhaustion_1">
-        <input type="checkbox" id="exhaustion_2">
-        <input type="checkbox" id="exhaustion_3">
-        <input type="checkbox" id="exhaustion_4">
-        <input type="checkbox" id="exhaustion_5">
-        <input type="checkbox" id="exhaustion_6">
+        <div class="two_box">
+            <input type="checkbox" id="exhaustion_1">
+            <input type="checkbox" id="exhaustion_2">
+            <input type="checkbox" id="exhaustion_3">
+            <input type="checkbox" id="exhaustion_4">
+            <input type="checkbox" id="exhaustion_5">
+            <input type="checkbox" id="exhaustion_6">
+        </div>
         Exhaustion
     </label>
-    <label>
-        <div id="spell_save_dc"></div>
-        Spell Save DC
-    </label>
-    <label>
-        <div id="spell_attack_modifier"></div>
-        Spell Attack Modifier
-    </label>
-    <label>
-        <div id="spellcasting_Ability"></div>
-        Spellcasting Ability
-    </label>
-   
 </body>
 </html>

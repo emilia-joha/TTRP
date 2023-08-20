@@ -307,16 +307,31 @@ $(".saving_throw").change(function () {
 $("#add_weapon").on("click", function () {
   weaponNumber += 1;
   const weaponHTML = `
-    <div>
-      <select id="weapon_name_${weaponNumber}">
-        <option value="">Select Weapon...</option>
-        ${weaponsAsHTML()}
-      </select>
-      <input type="text" id="type_${weaponNumber}">
-      <input type="text" id="attack_bonus_${weaponNumber}">
-      <input type="text" id="damage_${weaponNumber}">
-      <input type="text" id="property_${weaponNumber}">
-    </div>`;
+    <div class="weapon">
+            <label class="whole_width">
+                <select id="weapon_name_${weaponNumber}">
+                    <option value="">Select Weapon...</option>
+                    ${weaponsAsHTML()}
+                </select>
+            </label>
+            <div class="two_box">
+                <label class="half_width">
+                    <input type="text" id="type_${weaponNumber}">
+                </label>
+                <label class="half_width">
+                    <input type="text" id="attack_bonus_${weaponNumber}">
+                </label>
+            </div>
+            <div class="two_box">
+                <label class="half_width">
+                    <input type="text" id="damage_${weaponNumber}">
+                </label>
+                <label class="half_width">
+                    <input type="text" id="property_${weaponNumber}">
+                </label>
+            </div>  
+        </div>
+    `;
 
   $("#weapons").append(weaponHTML);
 
@@ -466,7 +481,7 @@ function presentWeapon() {
       attackBonus = Number($("#proficiency_bonus").text()) + Number(ability);
     }
 
-    $(`#attack_bonus_${i}`).val(attackBonus);
+    $(`#attack_bonus_${i}`).val(`+${attackBonus}`);
     $(`#damage_${i}`).val(
       `${weapon.damageDie} + ${ability} ${weapon.damageType}`
     );
@@ -594,8 +609,7 @@ function presentArmor() {
   );
 }
 
-// TODO: Lägg till text on hover som förklarar expertice och proficiency check box
-//https://www.w3schools.com/howto/howto_css_tooltip.asp
+// TODO: lägga till förklaring till utmattning checkboxar
 
 //TODO: lägga till multiclass
 
