@@ -160,3 +160,12 @@ hates
 social_behaviors
 hobby_and_interests
 backstory
+
+multiclassSubclass
+spellcasting_Ability_multiclass
+spell_attack_modifier_multiclass
+spell_save_dc_multiclass
+multiclass_name
+class_name
+multiclass
+multiclassLevel

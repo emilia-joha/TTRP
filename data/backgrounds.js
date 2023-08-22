@@ -257,7 +257,10 @@ export const backgrounds = [
   },
   {
     name: "Cloistered Scholar",
-    proficiencies: ["History", ["one of: ", "Arcana", "Nature", "Religion"]],
+    proficiencies: [
+      "History",
+      ["1 background proficiency from: ", "Arcana", "Nature", "Religion"],
+    ],
     traits: [
       "I'm used to helping out those who aren't as smart as I am, and I patiently explain anything and everything to others.",
       "There's nothing I like more than a good mystery.",
@@ -439,7 +442,7 @@ export const backgrounds = [
     name: "Faction Agent",
     proficiencies: [
       "Insight",
-      ["one of: ", "Intelligence", "Wisdom", "Charisma"],
+      ["1 background proficiency from: ", "Intelligence", "Wisdom", "Charisma"],
     ],
     traits: [
       "I see omens in every event and action. The gods try to speak to us, we just need to listen.",
@@ -765,11 +768,13 @@ export const backgrounds = [
   {
     name: "Haunted One",
     proficiencies: [
-      "two of: ",
-      "Arcana",
-      "Investigation",
-      "Religion",
-      " Survival",
+      [
+        "2 background proficiencies from:: ",
+        "Arcana",
+        "Investigation",
+        "Religion",
+        " Survival",
+      ],
     ],
 
     traits: [
@@ -879,7 +884,10 @@ export const backgrounds = [
   },
   {
     name: "Inheritor",
-    proficiencies: ["Survival", ["one of: ", "Arcana", "History", "Religion"]],
+    proficiencies: [
+      "Survival",
+      ["1 background proficiency from: ", "Arcana", "History", "Religion"],
+    ],
     traits: [
       "When I set my mind to something, I follow through no matter what gets in my way.",
       "I have a strong sense of fair play and always try to find the most equitable solution to arguments.",
@@ -951,7 +959,14 @@ export const backgrounds = [
   },
   {
     name: "Investigator (VRGR)",
-    proficiencies: ["two of: ", "Insight", "Investigation", "Perception"],
+    proficiencies: [
+      [
+        "2 background proficiencies from: ",
+        "Insight",
+        "Investigation",
+        "Perception",
+      ],
+    ],
     traits: [
       "I've lost too many friends, and I'm slow to make new ones.",
       "I'm full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.",
@@ -1027,7 +1042,13 @@ export const backgrounds = [
     name: "Knight of the Order",
     proficiencies: [
       "Persuasion",
-      ["one of: ", "Arcana", "History", "Nature", "Religion"],
+      [
+        "1 background proficiency from: ",
+        "Arcana",
+        "History",
+        "Nature",
+        "Religion",
+      ],
     ],
     traits: [
       "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.",
@@ -1477,11 +1498,13 @@ export const backgrounds = [
   {
     name: "Urban Bounty Hunter",
     proficiencies: [
-      "two of: ",
-      "Deception",
-      "Insight",
-      "Persuasion",
-      "Stealth",
+      [
+        "2 background proficiencies from: ",
+        "Deception",
+        "Insight",
+        "Persuasion",
+        "Stealth",
+      ],
     ],
 
     traits: [

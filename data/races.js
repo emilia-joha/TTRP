@@ -319,7 +319,7 @@ export const races = [
         darkvision: 0,
         speed: 30,
         weaponProficiencies: "",
-        proficiencies: [["One skill of your choice"]],
+        proficiencies: [["1 race proficiencie of your choice"]],
       },
     ],
   },
@@ -520,7 +520,7 @@ export const races = [
         weaponProficiencies: "",
         proficiencies: [
           [
-            "Two skills of your choice: Deception, Insight, Intimidation, Performance, or Persuasion",
+            "2 race proficiencies from: Deception, Insight, Intimidation, Performance, or Persuasion",
           ],
         ],
       },
@@ -685,7 +685,7 @@ export const races = [
         weaponProficiencies: "",
         proficiencies: [
           [
-            "Two skills of your choice: Acrobatics, Deception, Stealth, and Sleight of Hand.",
+            "2 race proficiencies from: Acrobatics, Deception, Stealth, and Sleight of Hand.",
           ],
         ],
       },
@@ -834,7 +834,7 @@ export const races = [
         weaponProficiencies: "",
         proficiencies: [
           [
-            "One skills of your choice: Animal Handling, Medicine, Nature, or Survival",
+            "1 race proficiency from: Animal Handling, Medicine, Nature, or Survival",
           ],
         ],
       },
@@ -868,7 +868,7 @@ export const races = [
         darkvision: 0,
         speed: 25,
         weaponProficiencies: "",
-        proficiencies: ["Perception "],
+        proficiencies: ["Perception"],
       },
     ],
   },
@@ -918,7 +918,7 @@ export const races = [
         weaponProficiencies: "",
         proficiencies: [
           [
-            "Two skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival",
+            "2 race proficiencies from: Animal Handling, Nature, Perception, Stealth, and Survival",
           ],
         ],
       },
@@ -937,7 +937,7 @@ export const races = [
         speed: 30,
         weaponProficiencies: "",
         proficiencies: [
-          ["One skills of your choice: Intimidation or Persuasion"],
+          ["1 race proficiency from: Intimidation or Persuasion"],
         ],
       },
     ],
@@ -956,7 +956,7 @@ export const races = [
         weaponProficiencies: "",
         proficiencies: [
           [
-            "Two skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
+            "2 race proficiencies from: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
           ],
         ],
       },
@@ -976,7 +976,7 @@ export const races = [
         weaponProficiencies: "",
         proficiencies: [
           [
-            "One skills of your choice: Acrobatics, Athletics, Intimidation, or Survival.",
+            "1 race proficiency from: Acrobatics, Athletics, Intimidation, or Survival.",
           ],
         ],
       },

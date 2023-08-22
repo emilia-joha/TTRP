@@ -5,6 +5,7 @@ body{
     align-items: center;
     margin: 0;
     font-family: 'Inter', sans-serif;
+    overflow: scroll;
 }
 
 section{
@@ -50,6 +51,8 @@ label{
     padding: 10px;
     height: 60px;
     font-weight: bold;
+    width: 100%;
+    text-align: center;
 }
 
 .abilities, #proficiency_bonus, #dice {
@@ -65,6 +68,17 @@ label{
     font-size: 20px;
 }
 
+#skill_proficiencies_select {
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: white;
+    box-shadow: 0 0 8px 0 #283529;
+    border-radius: 5px;
+}
+#skill_proficiencies_select p {
+    padding: 7px;
+}
 
 
 .abilities div, #hit_dice {
@@ -74,8 +88,6 @@ label{
     justify-content: center;
     align-items: center;
 }
-
-
 
 #total_hit_dice {
     box-shadow: none;
@@ -109,7 +121,6 @@ input[type="checkbox"] {
     box-shadow: 0 0 5px 0 #283529;
 }
 
-
 #skills p{
     font-size: 12px;
     margin: 0;
@@ -124,7 +135,7 @@ input[type="checkbox"] {
 }
 
 .passive, .spellcasting {
-    height: 25px;
+    height: 29px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 8px 0 #283529;
@@ -158,6 +169,14 @@ input[type="checkbox"] {
     padding-bottom: 0;
 }
 
+#spell_casting label{
+    padding: 15px 5px;
+}
+
+#spell_casting {
+    padding: 10px;
+}
+
 .weapon {
     padding: 15px 0;
 }
@@ -182,6 +201,11 @@ input[type="checkbox"] {
     width: 33%;
 }
 
+.one_sixteenth {
+    width: 16.5%;
+    padding: 25px 5px;
+}
+
 .two_box{
     display: flex;
     flex-direction: row;
@@ -197,6 +221,10 @@ justify-content: center;
     align-items: center;
 }
 
+.padding{
+    padding: 25px 15px 15px 15px;
+}
+
 select {
     cursor: pointer;
     font-size: 14px;
@@ -206,10 +234,9 @@ input{
     font-size: 14px;
 }
 
-
 input, select, textarea{
     width: 100%;
-    padding: 5px;
+    padding: 7px;
     box-sizing: border-box;
     border: none;
     box-shadow: 0 0 8px 0 #283529;

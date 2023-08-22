@@ -4,14 +4,18 @@ import { classes } from "../data/classes.js";
 import { weapons } from "../data/weapons.js";
 import { skills } from "../data/skills.js";
 import { armors } from "../data/armor.js";
+import { multiclass } from "../data/multiclass.js";
 
 let classs = null;
+let multiclasss = null;
 let previousSelectedClass = null;
+let previousSelectedMulticlass = null;
 let race = null;
 let subrace = null;
 let background = null;
 let previousSelectedBackground = null;
 let level = null;
+let multiclassLevel = null;
 let weaponNumber = 0;
 
 const racesHTML = races.map(function (race) {
@@ -95,13 +99,13 @@ $("#class").on("change", function () {
 
   const previousClass = classes.find((b) => b.name == previousSelectedClass);
 
-  // ta bort förra Class proficiencies
+  // ta bort förra Class saving throw proficiencies
   previousClass?.savingThrows.forEach(function (prof) {
     const profLower = prof.toLowerCase().replaceAll(" ", "_");
     $(`#proficiency_saving_throws_${profLower}`).prop("checked", false);
   });
 
-  // lägg till de nya
+  // lägg till de nya saving throw proficiencies
   classs.savingThrows.forEach(function (prof) {
     const profLower = prof.toLowerCase().replaceAll(" ", "_");
     $(`#proficiency_saving_throws_${profLower}`).prop("checked", true);
@@ -109,6 +113,35 @@ $("#class").on("change", function () {
 
   // kom ihåg vilken som var vald ifall man byter
   previousSelectedClass = classs.name;
+
+  if ($("#skill_proficiencies_select").is(":empty")) {
+    console.log("hej");
+    $("#skill_proficiencies_select").append(`
+    <p id="class_skill_proficiencies"></p>
+  `);
+  } else {
+    console.log("då");
+    $("#class_skill_proficiencies").empty();
+    $("#class_skill_proficiencies").append(
+      "Don't forget to remove your previously selected proficiencies from the class <br> <br>"
+    );
+  }
+
+  $("#class_skill_proficiencies").append(`
+  Choose ${
+    classs.proficiencies.choose
+  } class proficiencies from: ${classs.proficiencies.from.join(", ")}.
+  `);
+
+  if ($("#skill_button_box").is(":empty")) {
+    $("#skill_button_box").append(
+      `<button id="remove_button"S>Done adding skills</button>`
+    );
+    $("#remove_button").on("click", function () {
+      $("#skill_proficiencies_select").empty();
+      $("#skill_button_box").empty();
+    });
+  }
 
   if (subrace) {
     addStats();
@@ -154,12 +187,6 @@ $("#subrace").change(function () {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", false);
-    } else {
-      alert(
-        `Please remove the proficiency you chose of the following skill proficiencies: ${prof.join(
-          ", "
-        )}`
-      );
     }
   });
 
@@ -168,10 +195,35 @@ $("#subrace").change(function () {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", true);
-    } else {
-      alert(`${prof}`);
     }
   });
+
+  if (typeof newSubrace.proficiencies[0] == "object") {
+    if ($("#skill_proficiencies_select").is(":empty")) {
+      $("#skill_proficiencies_select").append(`
+      <p id="race_skill_proficiencies"></p>
+    `);
+    } else {
+      $("#race_skill_proficiencies").empty();
+      $("#race_skill_proficiencies").append(
+        "Don't forget to remove your previously selected proficiencies from the race. <br> <br>"
+      );
+    }
+
+    $("#race_skill_proficiencies").append(`
+    Choose ${newSubrace.proficiencies}
+    `);
+
+    if ($("#skill_button_box").is(":empty")) {
+      $("#skill_button_box").append(
+        `<button id="remove_button"S>Done adding skills</button>`
+      );
+      $("#remove_button").on("click", function () {
+        $("#skill_proficiencies_select").empty();
+        $("#skill_button_box").empty();
+      });
+    }
+  }
 
   recalculateAbilities();
   subrace = newSubrace;
@@ -200,17 +252,34 @@ $("#background").on("change", function () {
     }
   });
 
+  if ($("#background_skill_proficiencies")) {
+    $("#background_skill_proficiencies").remove();
+  }
   // lägg till de nya
   background.proficiencies.forEach(function (prof) {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", true);
     } else {
-      alert(
-        `Choose from the following skill proficiencies, ${prof.join(", ")}`
-      );
+      console.log(prof);
+      $("#skill_proficiencies_select").append(`
+        <p id="background_skill_proficiencies">
+        Choose ${prof.join(", ")}
+        </p>
+      `);
+
+      if ($("#skill_button_box").is(":empty")) {
+        $("#skill_button_box").append(
+          `<button id="remove_button"S>Done adding skills</button>`
+        );
+        $("#remove_button").on("click", function () {
+          $("#skill_proficiencies_select").empty();
+          $("#skill_button_box").empty();
+        });
+      }
     }
   });
+
   recalculateAbilities();
   // kom ihåg vilken som var vald ifall man byter
   previousSelectedBackground = background.name;
@@ -218,19 +287,41 @@ $("#background").on("change", function () {
 
 $("#level").on("change", function () {
   level = $(this).val();
-  const profBonus = proficiency(level);
+
+  let sumLevel = 0;
+  if (multiclassLevel) {
+    sumLevel = Number(level) + Number(multiclassLevel);
+  } else {
+    sumLevel = Number(level);
+  }
+
+  const profBonus = proficiency(sumLevel);
   $("#proficiency_bonus").text(profBonus);
   recalculateAbilities();
   recalculateSavingThrow();
   presentWeapon();
   calcSpells();
+  presentSpellCasting();
 });
 
 $("#class, #level").change(function () {
-  if (level != null && classs != null) {
-    $("#hit_dice").text("");
-    $("#hit_dice").text(`${level}d${classs.hitDie}`);
+  if (level && classs) {
+    if (multiclass && multiclassLevel) {
+      const classToDice = classes.find((x) => x.name == multiclasss.name);
+
+      $("#hit_dice").text("");
+      $("#hit_dice").text(
+        `${level}d${classs.hitDie}, ${multiclassLevel}d${classToDice.hitDie}`
+      );
+    } else {
+      $("#hit_dice").text("");
+      $("#hit_dice").text(`${level}d${classs.hitDie}`);
+    }
   }
+});
+
+$("#multiclass_button").on("click", function () {
+  presentMulticlass();
 });
 
 $("#ability_strength").keyup(function () {
@@ -239,7 +330,6 @@ $("#ability_strength").keyup(function () {
   $("#ability_modifier_strength").text(modifier);
   recalculateAbilities();
   recalculateSavingThrow();
-  calcSpells();
 });
 
 $("#ability_dexterity").keyup(function () {
@@ -248,8 +338,6 @@ $("#ability_dexterity").keyup(function () {
   $("#ability_modifier_dexterity").text(modifier);
   recalculateAbilities();
   recalculateSavingThrow();
-  calcSpells();
-  calcArmor();
   $("#initiative").val(`+${modifier}`);
 });
 
@@ -259,7 +347,6 @@ $("#ability_constitution").keyup(function () {
   $("#ability_modifier_constitution").text(modifier);
   recalculateAbilities();
   recalculateSavingThrow();
-  calcSpells();
 });
 
 $("#ability_intelligence").keyup(function () {
@@ -270,6 +357,7 @@ $("#ability_intelligence").keyup(function () {
   recalculateSavingThrow();
   passiveInvestigation();
   calcSpells();
+  presentSpellCasting();
 });
 
 $("#ability_wisdom").keyup(function () {
@@ -281,6 +369,7 @@ $("#ability_wisdom").keyup(function () {
   passivePerception();
   passiveInsight();
   calcSpells();
+  presentSpellCasting();
 });
 
 $("#ability_charisma").keyup(function () {
@@ -290,6 +379,7 @@ $("#ability_charisma").keyup(function () {
   recalculateAbilities();
   recalculateSavingThrow();
   calcSpells();
+  presentSpellCasting();
 });
 
 $(".proficiency, .expertise").change(function () {
@@ -297,7 +387,6 @@ $(".proficiency, .expertise").change(function () {
   passivePerception();
   passiveInsight();
   passiveInvestigation();
-  calcSpells();
 });
 
 $(".saving_throw").change(function () {
@@ -317,17 +406,21 @@ $("#add_weapon").on("click", function () {
             <div class="two_box">
                 <label class="half_width">
                     <input type="text" id="type_${weaponNumber}">
+                    Weapon Type
                 </label>
                 <label class="half_width">
                     <input type="text" id="attack_bonus_${weaponNumber}">
+                    Attack Bonus
                 </label>
             </div>
             <div class="two_box">
                 <label class="half_width">
                     <input type="text" id="damage_${weaponNumber}">
+                    Damage
                 </label>
                 <label class="half_width">
                     <input type="text" id="property_${weaponNumber}">
+                    Weapon Property
                 </label>
             </div>  
         </div>
@@ -450,6 +543,7 @@ function presentWeapon() {
   for (let i = 0; i <= weaponNumber; i++) {
     const selectedWeapon = $(`#weapon_name_${i}`).val();
     const weapon = weapons.find((x) => x.name == selectedWeapon);
+
     if (!weapon) {
       return;
     }
@@ -476,7 +570,9 @@ function presentWeapon() {
     if (
       classs?.weaponProficiency.find((w) => weapon.type.includes(w)) ||
       classs?.weaponProficiency.find((w) => w.includes(weapon.name)) ||
-      subrace?.weaponProficiencies.find((w) => w.includes(weapon.name))
+      subrace?.weaponProficiencies.find((w) => w.includes(weapon.name)) ||
+      multiclasss?.weaponProficiency.find((w) => weapon.type.includes(w)) ||
+      multiclasss?.weaponProficiency.find((w) => w.includes(weapon.name))
     ) {
       attackBonus = Number($("#proficiency_bonus").text()) + Number(ability);
     }
@@ -560,16 +656,190 @@ function calcSpells() {
     const spellSaveDC = Number(modifier) + Number(profBonus) + 8;
     const spellAttackModifier = Number(modifier) + Number(profBonus);
 
+    $("#class_name").text(classs.name);
     $("#spell_save_dc").text(spellSaveDC);
     $("#spell_attack_modifier").text(spellAttackModifier);
     $("#spellcasting_Ability").text(`${spellcastingAbility} +${modifier}`);
   }
 }
 
+function presentMulticlass() {
+  $("#multiclass_box").empty();
+
+  const classesHTML = multiclass.map(function (classs) {
+    return `<option value="${classs.name}">${classs.name}</option>`;
+  });
+  const classesHTMLAsText = classesHTML.join("");
+
+  const levelHTML = [];
+  for (let i = 1; i <= 20; i++) {
+    levelHTML.push(`<option value="${i}">${i}</option>`);
+  }
+  const levelHTMLAsText = levelHTML.join("");
+
+  $("#multiclass_box").append(`
+      <div class="two_box">
+      <label class="half_width">
+      <select id="multiclass" >
+          <option value="">Select Class...</option> ${classesHTMLAsText}
+      </select>
+      Class
+      </label>
+      <label class="half_width">
+          <select id="multiclassSubclass" >
+              <option value="">Select Subclass</option>
+          </select>
+          Subclass
+      </label>
+    </div>
+    <label class="whole_width">
+      <select id="multiclassLevel" >
+          <option value="">Select Level...</option> ${levelHTMLAsText}
+      </select>
+      Level
+    </label>
+  `);
+
+  $("#multiclass").change(function () {
+    const selectedMulticlass = $("#multiclass").val();
+    multiclasss = multiclass.find((x) => x.name == selectedMulticlass);
+
+    if ($("#multiclass_skill_proficiencies")) {
+      $("#multiclass_skill_proficiencies").remove();
+    }
+
+    $("#skill_proficiencies_select").append(`
+      <p id="multiclass_skill_proficiencies">
+      Choose ${
+        multiclasss.proficiencies.choose
+      } multiclass proficiencies from: ${multiclasss.proficiencies.from.join(", ")}
+      </p>
+    `);
+
+    if ($("#skill_button_box").is(":empty")) {
+      $("#skill_button_box").append(
+        `<button id="remove_button"S>Done adding skills</button>`
+      );
+      $("#remove_button").on("click", function () {
+        $("#skill_proficiencies_select").empty();
+        $("#skill_button_box").empty();
+      });
+    }
+
+    presentMultiSubclass();
+    presentSpellCasting();
+  });
+
+  $("#multiclassLevel").change(function () {
+    multiclassLevel = $(this).val();
+
+    let sumLevel = Number(level) + Number(multiclassLevel);
+
+    const profBonus = proficiency(sumLevel);
+    $("#proficiency_bonus").text(profBonus);
+    recalculateAbilities();
+    recalculateSavingThrow();
+    presentWeapon();
+    calcSpells();
+    presentSpellCasting();
+  });
+
+  $("#multiclass, #multiclassLevel").change(function () {
+    if (multiclassLevel && multiclasss && level && classs) {
+      const classToDice = classes.find((x) => x.name == multiclasss.name);
+
+      $("#hit_dice").text("");
+      $("#hit_dice").text(
+        `${level}d${classs.hitDie}, ${multiclassLevel}d${classToDice.hitDie}`
+      );
+    }
+  });
+}
+
+function presentSpellCasting() {
+  if (!multiclasss) {
+    return;
+  }
+  const multi = classes?.find((x) => x.name == multiclasss.name);
+
+  const spellcastingAbility = multi?.spellcastingAbility;
+
+  let modifier = null;
+
+  if (spellcastingAbility) {
+    modifier = $(
+      `#ability_modifier_${spellcastingAbility.toLowerCase()}`
+    ).text();
+  }
+  const profBonus = $("#proficiency_bonus").text();
+
+  if (modifier && profBonus && multiclasss) {
+    $("#spellcasting_multiclass").remove();
+
+    const spellSaveDC = Number(modifier) + Number(profBonus) + 8;
+    const spellAttackModifier = Number(modifier) + Number(profBonus);
+
+    $("#spell_casting").append(`
+    <div class="two_box" id="spellcasting_multiclass">
+        <label class="one_thirds">
+          <div id="multiclass_name" class="spellcasting whole_width">${multiclasss.name}</div>
+          <p class="label_p">class</p>
+        </label>
+        <label class="one_sixteenth">
+            <div id="spell_save_dc_multiclass" class="spellcasting whole_width">${spellSaveDC}</div>
+            <p class="label_p">Spell Save DC</p>
+        </label>
+        <label class="one_sixteenth">
+            <div id="spell_attack_modifier_multiclass" class="spellcasting whole_width">${spellAttackModifier}</div>
+            <p class="label_p">Spell Attack Modifier</p>
+        </label>
+        <label class="one_thirds">
+            <div id="spellcasting_Ability_multiclass" class="spellcasting whole_width">${spellcastingAbility} +${modifier}</div>
+            <p class="label_p">Spellcasting Ability</p>
+        </label>
+    </div>
+  `);
+  }
+}
+
+function presentMultiSubclass() {
+  $("#multiclassSubclass").children().remove();
+
+  classes.map(function (classs) {
+    if (classs.name == multiclasss.name) {
+      const subClassHTML = classs.subclasses.map(function (subClass) {
+        return `<option value="${subClass}">${subClass}</option>`;
+      });
+      const subClassHTMLAsText = subClassHTML.join("");
+      $("#multiclassSubclass").append(
+        `<option value="">Select Subclass...</option>${subClassHTMLAsText}`
+      );
+    }
+  });
+
+  const previousClass = classes.find((b) => b.name == previousSelectedClass);
+
+  // kom ihåg vilken som var vald ifall man byter
+  previousSelectedMulticlass = multiclass;
+
+  presentWeapon();
+  presentArmor();
+}
+
 function presentArmor() {
   $("#armor").empty();
 
-  const armorList = classs.armorProficiency;
+  const armorList = [];
+
+  for (let armor of classs.armorProficiency) {
+    armorList.push(armor);
+  }
+
+  if (multiclasss) {
+    for (let armor of multiclasss.armorProficiency) {
+      armorList.push(armor);
+    }
+  }
 
   const profArmors = armors.filter(function (a) {
     return armorList.includes(a.type);
@@ -609,8 +879,6 @@ function presentArmor() {
   );
 }
 
-// TODO: lägga till förklaring till utmattning checkboxar
+//TODO: lägga till förklaring till utmattning checkboxar
 
-//TODO: lägga till multiclass
-
-//TODO: Lägga till knapp som fäller tillbaka section
+//TODO: proficiency  multiclass / background vad händer mellan bytena?
