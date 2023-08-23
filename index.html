@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>dnd character</title>
+  </head>
+  <body>
+    <form id="form">
+      <input type="text" placeholder="Player name" id="name" />
+      <button type="submit">Go</button>
+    </form>
+  </body>
+  <script>
+    const form = document.getElementById('form');
+    const input = document.getElementById('name');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = input.value;
+      document.location.href = `/character-select?p=${user}`;
+    });
+  </script>
+</html>

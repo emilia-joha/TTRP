@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>dnd character</title>
+    <style>
+      #root {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 100px;
+        width: 100%;
+        max-width: 800px;
+      }
+
+      .char {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        cursor: pointer;
+        margin: 20px;
+        width: 100px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .char:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      .char img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+      }
+
+      .char span {
+        text-align: center;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">Wait</div>
+  </body>
+  <script>
+    function select(name) {
+      const selection = window.heroes.find((x) => x.name == name);
+      localStorage.setItem('selection', JSON.stringify(selection));
+      window.location.href = '/character.html';
+    }
+
+    (async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const user = urlParams.get('p');
+
+      const res = await fetch('https://europe-west1-fremi-rpg.cloudfunctions.net/dnd-pc-repo/api/loadAllPc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ player_name: user }),
+      });
+
+      const json = await res.json();
+      window.heroes = json.pcs;
+
+      const html = json.pcs.map((c) => `<div class="char" onclick="select('${c.name}')"><img src="${c.character_image || '/img/no_pic.png'}"/><span>${c.name}</span></div>`).join('');
+
+      document.getElementById('root').innerHTML = html;
+    })();
+  </script>
+</html>
