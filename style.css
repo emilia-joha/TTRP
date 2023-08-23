@@ -6,6 +6,7 @@ body{
     margin: 0;
     font-family: 'Inter', sans-serif;
     overflow: scroll;
+    box-sizing: border-box;
 }
 
 section{
@@ -51,7 +52,6 @@ label{
     padding: 10px;
     height: 60px;
     font-weight: bold;
-    width: 100%;
     text-align: center;
 }
 
@@ -68,7 +68,7 @@ label{
     font-size: 20px;
 }
 
-#skill_proficiencies_select {
+#skill_proficiencies_select, #exhaustion_description {
     text-align: center;
     box-sizing: border-box;
     font-size: 14px;
@@ -76,10 +76,9 @@ label{
     box-shadow: 0 0 8px 0 #283529;
     border-radius: 5px;
 }
-#skill_proficiencies_select p {
+#skill_proficiencies_select p, #exhaustion_description p {
     padding: 7px;
 }
-
 
 .abilities div, #hit_dice {
     height: inherit;
@@ -119,6 +118,7 @@ input[type="checkbox"] {
     height: 28px;
     margin: 0 10px;
     box-shadow: 0 0 5px 0 #283529;
+    cursor: pointer;
 }
 
 #skills p{

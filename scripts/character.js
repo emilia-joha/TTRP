@@ -115,15 +115,13 @@ $("#class").on("change", function () {
   previousSelectedClass = classs.name;
 
   if ($("#skill_proficiencies_select").is(":empty")) {
-    console.log("hej");
     $("#skill_proficiencies_select").append(`
     <p id="class_skill_proficiencies"></p>
   `);
   } else {
-    console.log("då");
     $("#class_skill_proficiencies").empty();
     $("#class_skill_proficiencies").append(
-      "Don't forget to remove your previously selected proficiencies from the class <br> <br>"
+      "Don't forget to remove your previously selected proficiencies from the class. <br> <br>"
     );
   }
 
@@ -135,7 +133,7 @@ $("#class").on("change", function () {
 
   if ($("#skill_button_box").is(":empty")) {
     $("#skill_button_box").append(
-      `<button id="remove_button"S>Done adding skills</button>`
+      `<button id="remove_button">Done adding skills</button>`
     );
     $("#remove_button").on("click", function () {
       $("#skill_proficiencies_select").empty();
@@ -188,6 +186,12 @@ $("#subrace").change(function () {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", false);
     }
+    if ($("#race_skill_proficiencies")) {
+      $("#race_skill_proficiencies").empty();
+      $("#race_skill_proficiencies").append(
+        "Don't forget to remove your previously selected proficiencies from the race. <br> <br>"
+      );
+    }
   });
 
   // lägg till de nya
@@ -216,7 +220,7 @@ $("#subrace").change(function () {
 
     if ($("#skill_button_box").is(":empty")) {
       $("#skill_button_box").append(
-        `<button id="remove_button"S>Done adding skills</button>`
+        `<button id="remove_button">Done adding skills</button>`
       );
       $("#remove_button").on("click", function () {
         $("#skill_proficiencies_select").empty();
@@ -243,34 +247,40 @@ $("#background").on("change", function () {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", false);
-    } else {
-      alert(
-        `Please remove the proficiency you chose of the following skill proficiencies, ${prof.join(
-          ", "
-        )}`
+    }
+    if ($("#background_skill_proficiencies")) {
+      $("#background_skill_proficiencies").empty();
+      $("#background_skill_proficiencies").append(
+        "Don't forget to remove your previously selected proficiencies from the background. <br> <br>"
       );
     }
   });
 
-  if ($("#background_skill_proficiencies")) {
-    $("#background_skill_proficiencies").remove();
-  }
   // lägg till de nya
   background.proficiencies.forEach(function (prof) {
     if (typeof prof == "string") {
       const profLower = prof.toLowerCase().replaceAll(" ", "_");
       $(`#proficiency_skill_${profLower}`).prop("checked", true);
-    } else {
-      console.log(prof);
-      $("#skill_proficiencies_select").append(`
-        <p id="background_skill_proficiencies">
-        Choose ${prof.join(", ")}
-        </p>
+    }
+    if (typeof prof == "object") {
+      if ($("#skill_proficiencies_select").is(":empty")) {
+        $("#skill_proficiencies_select").append(`
+        <p id="background_skill_proficiencies"></p>
+      `);
+      } else {
+        $("#background_skill_proficiencies").empty();
+        $("#background_skill_proficiencies").append(
+          "Don't forget to remove your previously selected proficiencies from the background. <br> <br>"
+        );
+      }
+
+      $("#background_skill_proficiencies").append(`
+      Choose ${prof.join(", ")}.
       `);
 
       if ($("#skill_button_box").is(":empty")) {
         $("#skill_button_box").append(
-          `<button id="remove_button"S>Done adding skills</button>`
+          `<button id="remove_button">Done adding skills</button>`
         );
         $("#remove_button").on("click", function () {
           $("#skill_proficiencies_select").empty();
@@ -435,6 +445,42 @@ $("#add_weapon").on("click", function () {
 
 $("#armor").change(function () {
   calcArmor();
+});
+
+$(".exhaustion").change(function () {
+  const exhaustionId = $(this).attr("id");
+  const exhaustionLevel = exhaustionId.slice(-1);
+  const exhaustionType = {
+    1: "Disadvantage on ability checks.",
+    2: "Speed halved.",
+    3: "Disadvantage on attack rolls and saving throws.",
+    4: "Hit point maximum halved.",
+    5: "Speed reduced to 0.",
+    6: "Death.",
+  };
+
+  const isExhausted = $(`#${exhaustionId}`).is(":checked");
+
+  if ($("#exhaustion_description").is(":empty")) {
+    $("#exhaustion_description").append(`<p></p>`);
+  }
+
+  if (isExhausted) {
+    $("#exhaustion_description")
+      .children("p")
+      .append(`${exhaustionType[exhaustionLevel]}<br>`);
+  } else {
+    const str = $("#exhaustion_description").children("p").text();
+    const newstr = str.replace(`${exhaustionType[exhaustionLevel]}`, "");
+    $("#exhaustion_description").children("p").empty();
+    if (newstr != "") {
+      $("#exhaustion_description")
+        .children("p")
+        .append(newstr.replaceAll(".", ".<br>"));
+    } else {
+      $("#exhaustion_description").children("p").remove();
+    }
+  }
 });
 
 function calcArmor() {
@@ -704,26 +750,43 @@ function presentMulticlass() {
     const selectedMulticlass = $("#multiclass").val();
     multiclasss = multiclass.find((x) => x.name == selectedMulticlass);
 
-    if ($("#multiclass_skill_proficiencies")) {
-      $("#multiclass_skill_proficiencies").remove();
-    }
+    if (multiclasss.proficiencies.choose != 0) {
+      if ($("#skill_proficiencies_select").is(":empty")) {
+        $("#skill_proficiencies_select").append(`
+      <p id="multiclass_skill_proficiencies"></p>
+    `);
+      } else {
+        $("#multiclass_skill_proficiencies").empty();
+        $("#multiclass_skill_proficiencies").append(
+          "Don't forget to remove your previously selected proficiencies from the multiclass. <br> <br>"
+        );
+      }
 
-    $("#skill_proficiencies_select").append(`
-      <p id="multiclass_skill_proficiencies">
-      Choose ${
-        multiclasss.proficiencies.choose
-      } multiclass proficiencies from: ${multiclasss.proficiencies.from.join(", ")}
-      </p>
+      $("#multiclass_skill_proficiencies").append(`
+    Choose ${
+      multiclasss.proficiencies.choose
+    } multiclass proficiencies from: ${multiclasss.proficiencies.from.join(
+        ", "
+      )}.
     `);
 
-    if ($("#skill_button_box").is(":empty")) {
-      $("#skill_button_box").append(
-        `<button id="remove_button"S>Done adding skills</button>`
+      if ($("#skill_button_box").is(":empty")) {
+        $("#skill_button_box").append(
+          `<button id="remove_button">Done adding skills</button>`
+        );
+        $("#remove_button").on("click", function () {
+          $("#skill_proficiencies_select").empty();
+          $("#skill_button_box").empty();
+        });
+      }
+    } else if (
+      multiclasss.proficiencies.choose == 0 &&
+      $("#multiclass_skill_proficiencies")
+    ) {
+      $("#multiclass_skill_proficiencies").empty();
+      $("#multiclass_skill_proficiencies").append(
+        "Don't forget to remove your previously selected proficiencies from the multiclass. <br> <br>"
       );
-      $("#remove_button").on("click", function () {
-        $("#skill_proficiencies_select").empty();
-        $("#skill_button_box").empty();
-      });
     }
 
     presentMultiSubclass();
@@ -878,7 +941,3 @@ function presentArmor() {
     `<option value="">Select Armor...</option>${armorHTMLAsText}`
   );
 }
-
-//TODO: lägga till förklaring till utmattning checkboxar
-
-//TODO: proficiency  multiclass / background vad händer mellan bytena?
