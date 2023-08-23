@@ -1,10 +1,4 @@
-const pages = [
-  "character_info",
-  "background",
-  "abilities",
-  "equipment",
-  "fight",
-];
+const pages = ['character_info', 'background', 'abilities', 'equipments', 'fight'];
 
 (async function () {
   const requests = [];

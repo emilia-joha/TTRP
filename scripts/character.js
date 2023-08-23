@@ -6,8 +6,6 @@ import { skills } from '../data/skills.js';
 import { armors } from '../data/armor.js';
 import { multiclass } from '../data/multiclass.js';
 
-console.log(JSON.parse(localStorage.getItem('selection')));
-
 let classs = null;
 let multiclasss = null;
 let previousSelectedClass = null;

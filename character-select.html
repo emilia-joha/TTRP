@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
@@ -69,7 +70,7 @@
       const json = await res.json();
       window.heroes = json.pcs;
 
-      const html = json.pcs.map((c) => `<div class="char" onclick="select('${c.name}')"><img src="${c.character_image || '/img/no_pic.png'}"/><span>${c.name}</span></div>`).join('');
+      const html = json.pcs.map((c) => `<div class="char" onclick="select(${'`' + c.name + '`'})"><img src="${c.character_image || '/img/no_pic.png'}"/><span>${c.name}</span></div>`).join('');
 
       document.getElementById('root').innerHTML = html;
     })();
