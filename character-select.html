@@ -60,7 +60,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const user = urlParams.get('p');
 
-      const res = await fetch('https://europe-west1-fremi-rpg.cloudfunctions.net/dnd-pc-repo/api/loadAllPc', {
+      const res = await fetch(`https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/loadAllPc`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ player_name: user }),
