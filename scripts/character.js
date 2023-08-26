@@ -238,9 +238,15 @@ $("#background").on("change", function () {
   const selectedBackground = $(this).val();
   background = backgrounds.find((x) => x.name == selectedBackground);
 
+  if (!background) {
+    console.warn('No background found for ', selectedBackground);
+    return;
+  }
+  
   const previousBackground = backgrounds.find(
     (b) => b.name == previousSelectedBackground
   );
+
 
   // ta bort förra background proficiencies
   previousBackground?.proficiencies.forEach(function (prof) {

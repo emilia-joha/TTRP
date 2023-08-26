@@ -1,6 +1,8 @@
 const hero = JSON.parse(localStorage.getItem('selection'));
 
 (() => {
+  console.log(hero);
+
   function get(elementId) {
     return document.getElementById(elementId);
   }
@@ -12,8 +14,6 @@ const hero = JSON.parse(localStorage.getItem('selection'));
     const el = get(id);
 
     if (!el || !val) continue;
-
-    console.log(el.type, el);
 
     if (el.type == 'checkbox') {
       el.checked = val;

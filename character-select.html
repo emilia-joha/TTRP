@@ -14,16 +14,18 @@
     <div id="root">Wait</div>
   </body>
   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const user = urlParams.get('p');
+
     function select(name) {
-      const selection = window.heroes.find((x) => x.name == name);
+      let selection = window.heroes.find((x) => x.name == name);
+      selection = { ...selection, player_name: user };
+
       localStorage.setItem('selection', JSON.stringify(selection));
       window.location.href = '/character.html';
     }
 
     (async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const user = urlParams.get('p');
-
       const res = await fetch(`https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/loadAllPc`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -31,9 +33,9 @@
       });
 
       const json = await res.json();
-      window.heroes = json.pcs;
+      window.heroes = [{ name: 'Create New' }, ...json.pcs];
 
-      const html = json.pcs.map((c) => `<div class="char" onclick="select(${'`' + c.name + '`'})"><span>${c.name}</span></div>`).join('');
+      const html = window.heroes.map((c) => `<div class="char" onclick="select(${'`' + c.name + '`'})"><span>${c.name}</span></div>`).join('');
 
       document.getElementById('root').innerHTML = html;
     })();

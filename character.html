@@ -11,6 +11,9 @@
   </head>
   <body>
     <header id="characterName"></header>
+    <input type="hidden" id="player_name" />
+    <input type="hidden" id="_IS_SECRET" value="false" />
+    <input type="hidden" id="_IS_PUBLIC" value="true" />
     <section>
       <header>Character Information</header>
       <div class="foldable">
@@ -41,10 +44,15 @@
         <div id="fight"></div>
       </div>
     </section>
+    <div id="saving-status">
+      <div id="saving-success">Saved successful</div>
+      <div id="saving-fail">Save failed for unknown reasons</div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/load-subpages.js" type="module"></script>
     <script src="./scripts/character.js" type="module"></script>
     <script src="./scripts/populate.js" type="module"></script>
+    <script src="./scripts/saving.js" type="module"></script>
   </body>
 </html>
