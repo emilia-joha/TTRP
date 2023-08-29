@@ -1,258 +1,272 @@
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    overflow: scroll;
-    box-sizing: border-box;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  overflow: scroll;
+  box-sizing: border-box;
 }
 
-section{
-    width: 92%;
-    max-width: 620px;
-    min-height: 50px;
-    background-color: #E1EAC9;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
+section {
+  width: 92%;
+  max-width: 620px;
+  min-height: 50px;
+  background-color: #e1eac9;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .foldable {
-    display: none;
-    width: 100%;
+  display: none;
+  width: 100%;
 }
 
-header{
-    font-size: 20px;
-    cursor: pointer;
-    padding: 16px 20%;
+header {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 16px 20%;
 }
 
 .label_p {
-    text-align: center;
-    margin: 0;
+  text-align: center;
+  margin: 0;
 }
 
-label{
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 25px 15px;
-    align-items: center;
-    font-size: 14px;
+label {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 25px 15px;
+  align-items: center;
+  font-size: 14px;
 }
-#characterName{
-    color: #717959;
-    font-size: 40px;
-    padding: 10px;
-    height: 60px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.abilities, #proficiency_bonus, #dice {
-    background-color: white;
-    height: 80px;
-    width: 100%;
-    box-shadow: 0 0 8px 0 #283529;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
+#characterName {
+  color: #717959;
+  font-size: 40px;
+  padding: 10px;
+  height: 60px;
+  font-weight: bold;
+  text-align: center;
 }
 
-#skill_proficiencies_select, #exhaustion_description {
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 14px;
-    background-color: white;
-    box-shadow: 0 0 8px 0 #283529;
-    border-radius: 5px;
+.abilities,
+#proficiency_bonus,
+#dice {
+  background-color: white;
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 0 8px 0 #283529;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+#skill_proficiencies_select,
+#exhaustion_description {
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: white;
+  box-shadow: 0 0 8px 0 #283529;
+  border-radius: 5px;
 }
 #skill_proficiencies_select {
-    padding: 7px;
+  padding: 7px;
 }
 
-.abilities div, #hit_dice {
-    height: inherit;
-    width: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.abilities div,
+#hit_dice {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #total_hit_dice {
-    box-shadow: none;
-    border-radius:  5px 5px 0 0;
-    border-bottom: #E1EAC9 2px solid;
-    height: 80px;
+  box-shadow: none;
+  border-radius: 5px 5px 0 0;
+  border-bottom: #e1eac9 2px solid;
+  height: 80px;
 }
 
 .abilities input {
-    box-shadow: none;
-    border-radius: 0 0 5px 5px;
-    border-top: #E1EAC9 2px solid;
+  box-shadow: none;
+  border-radius: 0 0 5px 5px;
+  border-top: #e1eac9 2px solid;
 }
 
-#skills, #saving_throws {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
+#skills,
+#saving_throws {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-#skills label, #saving_throws label  {
-    display: flex;
-    flex-direction: row;
-    padding: 5px 15px;
+#skills label,
+#saving_throws label {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 15px;
 }
 
-input[type="checkbox"] {
-    width: 28px;
-    height: 28px;
-    margin: 0 10px;
-    box-shadow: 0 0 5px 0 #283529;
-    cursor: pointer;
+input[type='checkbox'] {
+  width: 28px;
+  height: 28px;
+  margin: 0 10px;
+  box-shadow: 0 0 5px 0 #283529;
+  cursor: pointer;
 }
 
-#skills p{
-    font-size: 14px;
-    margin: 0;
-    padding: 5px;
+#skills p {
+  font-size: 14px;
+  margin: 0;
+  padding: 5px;
 }
 
-.skill > label > p, .saving_throw > label > p {
-    width: 30px;
-    margin: 0;
-    padding: 0 10px 0 0;
-    height: 14px;
+.skill > label > p,
+.saving_throw > label > p {
+  width: 30px;
+  margin: 0;
+  padding: 0 10px 0 0;
+  height: 14px;
 }
 
-.passive, .spellcasting {
-    height: 29px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 8px 0 #283529;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.passive,
+.spellcasting {
+  height: 29px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 8px 0 #283529;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#proficiencies_languages, #inventory, #equipment, #backstory {
-    min-height: 80px;
+#proficiencies_languages,
+#inventory,
+#equipment,
+#backstory {
+  min-height: 80px;
 }
 
 .two_input {
-    box-shadow: 0 0 8px 0 #283529;
-    border-radius: 5px;
+  box-shadow: 0 0 8px 0 #283529;
+  border-radius: 5px;
 }
 
 #current_hit_points {
-    box-shadow: none;
-    height: 40px;
-    border-radius: 5px 5px 0 0;
+  box-shadow: none;
+  height: 40px;
+  border-radius: 5px 5px 0 0;
 }
 
 #hit_point_maximum {
-    box-shadow: none;
-    height: 40px;
-    border-radius: 0 0 5px 5px;
-    border-top: #E1EAC9 2px solid;
+  box-shadow: none;
+  height: 40px;
+  border-radius: 0 0 5px 5px;
+  border-top: #e1eac9 2px solid;
 }
 #death_saves label {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
-#spell_casting label{
-    padding: 15px 5px;
+#spell_casting label {
+  padding: 15px 5px;
 }
 
 #spell_casting {
-    padding: 10px;
+  padding: 10px;
 }
 
 .weapon {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 .weapon label {
-    padding: 5px 15px;
+  padding: 5px 15px;
 }
 
-.whole_width{
-    width: 100%;
+.whole_width {
+  width: 100%;
 }
 
 .half_width {
-    width: 50%;
+  width: 50%;
 }
 
 .three_thirds {
-    width: 66%;
+  width: 66%;
 }
 
-.one_thirds{
-    width: 33%;
+.one_thirds {
+  width: 33%;
 }
 
 .one_sixteenth {
-    width: 16.5%;
-    padding: 25px 5px;
+  width: 16.5%;
+  padding: 25px 5px;
 }
 
-.two_box{
-    display: flex;
-    flex-direction: row;
+.two_box {
+  display: flex;
+  flex-direction: row;
 }
 
 .center_box {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .align_center_box {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.padding{
-    padding: 25px 15px 15px 15px;
+.padding {
+  padding: 25px 15px 15px 15px;
 }
 
 select {
-    cursor: pointer;
-    font-size: 14px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-input{
-    font-size: 14px;
+input {
+  font-size: 14px;
 }
 
-input, select, textarea{
-    width: 100%;
-    padding: 7px;
-    box-sizing: border-box;
-    border: none;
-    box-shadow: 0 0 8px 0 #283529;
-    border-radius: 5px;
-    text-align: center;
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 0 8px 0 #283529;
+  border-radius: 5px;
+  text-align: center;
 }
 textarea:focus {
-    outline: none !important;
-  }
-
-textarea {
-    resize: vertical;
-    text-align: left;
+  outline: none !important;
 }
 
-input:focus-visible, select:focus-visible {
+textarea {
+  resize: vertical;
+  text-align: left;
+}
+
+input:focus-visible,
+select:focus-visible {
   outline: none;
 }
 
@@ -260,26 +274,44 @@ input[type='checkbox'] {
   accent-color: #717959;
 }
 
-.button_box{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.button_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 button {
-    background-color: #717959;
-    border: 2px solid white;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 14px;
-    color: white;
-    box-shadow: 0 0 8px 0 #283529;
+  background-color: #717959;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  box-shadow: 0 0 8px 0 #283529;
 }
 
-button:hover{
-    box-shadow: none;
+button:hover {
+  box-shadow: none;
+}
+
+#saving-status {
+  position: fixed;
+  bottom: 20px;
+  display: none;
+  padding: 20px;
+  background: white;
+}
+
+#saving-success {
+  color: green;
+  display: none;
+}
+
+#saving-fail {
+  display: none;
+  color: red;
 }

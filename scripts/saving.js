@@ -101,6 +101,7 @@ const allSavableFields = [
   'total_hit_dice',
   '_IS_SECRET',
   '_IS_PUBLIC',
+  '_ID',
 ];
 
 function val(elementId) {
@@ -189,11 +190,14 @@ async function save() {
   console.log('Saving!');
 
   const character = getCharacterObject();
-  const res = await fetch(`https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/savePc`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ character: character }),
-  });
+  const res = await fetch(
+    `https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/savePc`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ character: character }),
+    }
+  );
 
   if (res.ok) {
     feedback(true);
