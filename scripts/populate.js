@@ -13,6 +13,7 @@ const hero = JSON.parse(localStorage.getItem('selection'));
     const val = hero[id];
     const el = get(id);
 
+    if (val == 'Create New') continue;
     if (!el || !val) continue;
 
     if (el.type == 'checkbox') {

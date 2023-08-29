@@ -201,6 +201,11 @@ async function save() {
 
   if (res.ok) {
     feedback(true);
+    if (!val('_ID').length) {
+      const json = await res.json();
+      console.log(json);
+      document.getElementById('_ID').value = json.id;
+    }
   } else {
     feedback(false);
   }

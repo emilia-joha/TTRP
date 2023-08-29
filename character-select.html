@@ -6,9 +6,12 @@
     <meta name="referrer" content="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title></title>                  
+    <title></title>
   </head>
   <body>
     <div id="root">Wait</div>
@@ -26,16 +29,26 @@
     }
 
     (async () => {
-      const res = await fetch(`https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/loadAllPc`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ player_name: user }),
-      });
+      const res = await fetch(
+        `https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/loadAllPc`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ player_name: user }),
+        }
+      );
 
       const json = await res.json();
       window.heroes = [{ name: 'Create New' }, ...json.pcs];
 
-      const html = window.heroes.map((c) => `<div class="char" onclick="select(${'`' + c.name + '`'})"><span>${c.name}</span></div>`).join('');
+      const html = window.heroes
+        .map(
+          (c) =>
+            `<div class="char" onclick="select(${'`' + c.name + '`'})"><span>${
+              c.name
+            }</span></div>`
+        )
+        .join('');
 
       document.getElementById('root').innerHTML = html;
     })();
