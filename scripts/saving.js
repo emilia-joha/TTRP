@@ -187,9 +187,11 @@ async function save() {
   if (isSaved) return;
 
   isSaved = true;
-  console.log('Saving!');
 
   const character = getCharacterObject();
+
+  localStorage.setItem('selection', JSON.stringify(character));
+
   const res = await fetch(
     `https://${'europe-west1-fremi'}-rpg.cloudfunctions.net/dnd-pc-repo/api/savePc`,
     {
