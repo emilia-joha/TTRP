@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title></title>
+    <title>Login</title>
   </head>
   <body>
     <form id="form">
@@ -29,6 +29,7 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const user = input.value;
       document.location.href = document.location.href.replace(
         '/index.html',
