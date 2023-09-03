@@ -25,7 +25,10 @@
       selection = { ...selection, player_name: user };
 
       localStorage.setItem('selection', JSON.stringify(selection));
-      window.location.href = '/character.html';
+      window.location.href = document.location.href.replace(
+        /character-select.+/,
+        'character.html'
+      );
     }
 
     (async () => {

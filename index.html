@@ -30,7 +30,10 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const user = input.value;
-      document.location.href = `/character-select.html?p=${user}`;
+      document.location.href = document.location.href.replace(
+        '/index.html',
+        `/character-select.html?p=${user}`
+      );
     });
   </script>
 </html>
