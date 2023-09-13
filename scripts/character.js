@@ -16,7 +16,6 @@ let background = null;
 let previousSelectedBackground = null;
 let level = null;
 let multiclassLevel = null;
-let weaponNumber = 0;
 
 const racesHTML = races.map(function (race) {
   return `<option value="${race.name}">${race.name}</option>`;
@@ -64,14 +63,14 @@ function weaponsAsHTML() {
     })
     .join('');
 }
-$(`#weapon_name_${weaponNumber}`).append(weaponsAsHTML());
+$(`.weapon_name`).append(weaponsAsHTML());
 
 $('#name').on('change', function () {
   const name = $('#name').val();
   $('#characterName').text(name);
 });
 
-$(`#weapon_name_${weaponNumber}`).on('change', function () {
+$(`.weapon_name`).on('change', function () {
   presentWeapon();
 });
 
@@ -411,41 +410,14 @@ $('.saving_throw').change(function () {
 });
 
 $('#add_weapon').on('click', function () {
-  weaponNumber += 1;
-  const weaponHTML = `
-    <div class="weapon">
-            <label class="whole_width">
-                <select id="weapon_name_${weaponNumber}">
-                    <option value="">Select Weapon...</option>
-                    ${weaponsAsHTML()}
-                </select>
-            </label>
-            <div class="two_box">
-                <label class="half_width">
-                    <input type="text" id="type_${weaponNumber}">
-                    Weapon Type
-                </label>
-                <label class="half_width">
-                    <input type="text" id="attack_bonus_${weaponNumber}">
-                    Attack Bonus
-                </label>
-            </div>
-            <div class="two_box">
-                <label class="half_width">
-                    <input type="text" id="damage_${weaponNumber}">
-                    Damage
-                </label>
-                <label class="half_width">
-                    <input type="text" id="property_${weaponNumber}">
-                    Weapon Property
-                </label>
-            </div>  
-        </div>
-    `;
+  const weapon = $('.invisible').first();
+  weapon.removeClass('invisible');
 
-  $('#weapons').append(weaponHTML);
+  if ($('#weapons').children('.invisible').length == 0) {
+    $('#add_weapon').remove();
+  }
 
-  $(`#weapon_name_${weaponNumber}`).on('change', function () {
+  $(`.weapon_name`).on('change', function () {
     presentWeapon();
   });
 });
@@ -594,7 +566,7 @@ function proficiency(lvl) {
 }
 
 function presentWeapon() {
-  for (let i = 0; i <= weaponNumber; i++) {
+  for (let i = 0; i <= 4; i++) {
     const selectedWeapon = $(`#weapon_name_${i}`).val();
     const weapon = weapons.find((x) => x.name == selectedWeapon);
 

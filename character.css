@@ -79,7 +79,7 @@ label {
   box-shadow: 0 0 8px 0 #283529;
   border-radius: 5px;
 }
-#skill_proficiencies_select {
+#skill_proficiencies_select p{
   padding: 7px;
 }
 
@@ -318,4 +318,8 @@ button:hover {
 
 #multiclass_box{
   display:none;
+}
+
+.invisible {
+  display: none;
 }
