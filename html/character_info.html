@@ -47,9 +47,29 @@
             Level
         </label>
         <div id="multiclass_box">
-            <div class="button_box">
-                <button id="multiclass_button">Multiclass</button>
-            </div>
+            <div class="two_box">
+                <label class="half_width">
+                <select id="multiclass" >
+                    <option value="">Select Class...</option> ${classesHTMLAsText}
+                </select>
+                Multiclass Class
+                </label>
+                <label class="half_width">
+                    <select id="multiclassSubclass" >
+                        <option value="">Select Subclass</option>
+                    </select>
+                    Multiclass Subclass
+                </label>
+              </div>
+              <label class="whole_width">
+                <select id="multiclassLevel" >
+                    <option value="">Select Level...</option>
+                </select>
+                Multiclass Level
+            </label>
+        </div>
+        <div class="button_box">
+            <button id="multiclass_button">Multiclass</button>
         </div>
     </div>
 </body>

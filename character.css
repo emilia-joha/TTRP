@@ -315,3 +315,7 @@ button:hover {
   display: none;
   color: red;
 }
+
+#multiclass_box{
+  display:none;
+}
