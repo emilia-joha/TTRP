@@ -79,7 +79,7 @@ label {
   box-shadow: 0 0 8px 0 #283529;
   border-radius: 5px;
 }
-#skill_proficiencies_select p{
+#skill_proficiencies_select p {
   padding: 7px;
 }
 
@@ -300,10 +300,11 @@ button:hover {
 
 #saving-status {
   position: fixed;
-  bottom: 20px;
+  left: 10px;
+  top: 0px;
   display: none;
   padding: 20px;
-  background: white;
+  font-size: 20px;
 }
 
 #saving-success {
@@ -312,12 +313,12 @@ button:hover {
 }
 
 #saving-fail {
-  display: none;
   color: red;
+  display: none;
 }
 
-#multiclass_box{
-  display:none;
+#multiclass_box {
+  display: none;
 }
 
 .invisible {
