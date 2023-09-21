@@ -29,6 +29,7 @@ button,
 }
 
 .char {
+  text-align: center;
   width: 140px;
   margin: 25px 15px;
   height: 80px;
@@ -85,6 +86,7 @@ label {
   box-sizing: border-box;
   padding: 25px 15px;
   align-items: center;
+  text-align: center;
   font-size: 14px;
 }
 
