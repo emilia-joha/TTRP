@@ -9,7 +9,7 @@ const hero = JSON.parse(localStorage.getItem('selection'));
 
   const event = new Event('change');
 
-  for (const id in hero) {
+  for (const id in sorted(hero)) {
     const val = hero[id];
     const el = get(id);
 
@@ -35,3 +35,12 @@ const hero = JSON.parse(localStorage.getItem('selection'));
     el.dispatchEvent(event);
   }
 })();
+
+function sorted(obj) {
+  return Object.keys(obj)
+    .sort((a, b) => (['class'].includes(a) ? -1 : 1))
+    .reduce(function (result, key) {
+      result[key] = obj[key];
+      return result;
+    }, {});
+}

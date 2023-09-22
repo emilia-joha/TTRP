@@ -11,6 +11,8 @@ const allSavableFields = [
   'ability_modifier_strength',
   'ability_wisdom',
   'ability_modifier_wisdom',
+  'armor',
+  'shield_to_ac',
   'armor_class',
   'background',
   'backstory',

@@ -17,6 +17,7 @@ let previousSelectedBackground = null;
 let level = null;
 let multiclassLevel = null;
 
+const hero = JSON.parse(localStorage.getItem('selection'));
 let isLoading = true;
 setTimeout(() => {
   isLoading = false;
@@ -85,7 +86,9 @@ $('#class').on('change', function () {
   classes.forEach(function (classs) {
     if (classs.name == selectedClass) {
       const subClassHTML = classs.subclasses.map(function (subClass) {
-        return `<option value="${subClass}">${subClass}</option>`;
+        return `<option ${
+          isLoading && hero?.subclass == subClass ? 'selected ' : ''
+        }value="${subClass}">${subClass}</option>`;
       });
       const subClassHTMLAsText = subClassHTML.join('');
       $('#subclass').append(
@@ -138,10 +141,12 @@ $('#race').on('change', function () {
 
   $('#subrace').children().remove();
 
-  races.map(function (race) {
+  races.forEach(function (race) {
     if (race.name == selectedRace) {
       const subraceHTML = race.subclasses.map(function (subrace) {
-        return `<option value="${subrace.name}">${subrace.name}</option>`;
+        return `<option ${
+          isLoading && hero?.subrace == subrace.name ? 'selected ' : ''
+        }value="${subrace.name}">${subrace.name}</option>`;
       });
       const subraceHTMLAsText = subraceHTML.join('');
       $('#subrace').append(
@@ -446,10 +451,12 @@ function calcArmor() {
       armorDex = armor.maxDex;
     }
 
-    const armorClass = Number(armor.ac) + Number(armorDex);
+    const hasShield = $(`#shield_to_ac`).is(':checked');
+
+    const armorClass =
+      Number(armor.ac) + Number(armorDex) + (hasShield ? 2 : 0);
     $('#armor_class').empty();
     $('#armor_class').val(armorClass);
-    $('#shield_to_ac').prop('checked', false);
   }
 }
 
@@ -775,10 +782,12 @@ function presentSpellCasting() {
 function presentMultiSubclass() {
   $('#multiclassSubclass').children().remove();
 
-  classes.map(function (classs) {
+  classes.forEach(function (classs) {
     if (classs.name == multiclasss.name) {
       const subClassHTML = classs.subclasses.map(function (subClass) {
-        return `<option value="${subClass}">${subClass}</option>`;
+        return `<option ${
+          isLoading && hero?.multiclassSubclass == subClass ? 'selected ' : ''
+        }value="${subClass}">${subClass}</option>`;
       });
       const subClassHTMLAsText = subClassHTML.join('');
       $('#multiclassSubclass').append(
@@ -787,11 +796,6 @@ function presentMultiSubclass() {
     }
   });
 
-  const previousClass = classes.find((b) => b.name == previousSelectedClass);
-
-  // kom ihåg vilken som var vald ifall man byter
-  previousSelectedMulticlass = multiclass;
-
   presentWeapon();
   presentArmor();
 }
@@ -799,49 +803,21 @@ function presentMultiSubclass() {
 function presentArmor() {
   $('#armor').empty();
 
-  const armorList = [];
-
-  for (let armor of classs.armorProficiency) {
-    armorList.push(armor);
-  }
-
-  if (multiclasss) {
-    for (let armor of multiclasss.armorProficiency) {
-      armorList.push(armor);
-    }
-  }
+  const armorList = [
+    ...classs.armorProficiency,
+    ...(multiclasss?.armorProficiency || []),
+  ];
 
   const profArmors = armors.filter(function (a) {
     return armorList.includes(a.type);
   });
 
-  const armorHTML = profArmors.map(function (a) {
-    22;
-    return `<option value="${a.name}">${a.name}</option>`;
-  });
-
-  $('#shield').empty();
-  if (armorList.includes('Shield')) {
-    $('#shield').append(
-      '<label><input type="checkbox" id="shield_to_ac">Shield</label>'
-    );
-
-    $('#shield_to_ac').change(function () {
-      const hasShield = $(`#shield_to_ac`).is(':checked');
-
-      const AC = $('#armor_class').val();
-
-      if (hasShield) {
-        if (AC == '') {
-          $('#armor_class').val(2);
-        } else {
-          $('#armor_class').val(Number(AC) + 2);
-        }
-      } else {
-        $('#armor_class').val(Number(AC) - 2);
-      }
-    });
-  }
+  const armorHTML = [...new Set(profArmors.map((x) => x.name))].map(
+    (a) =>
+      `<option ${
+        isLoading && hero?.armor == a ? 'selected ' : ''
+      }value="${a}">${a}</option>`
+  );
 
   const armorHTMLAsText = armorHTML.join('');
   $('#armor').append(
@@ -849,4 +825,6 @@ function presentArmor() {
   );
 }
 
-//TODO: föredetta multiclass
+$('#shield_to_ac').change(function () {
+  calcArmor();
+});
