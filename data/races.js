@@ -1,11 +1,11 @@
 export const races = [
   {
-    name: "Dragonborn",
+    name: 'Dragonborn',
     subclasses: [
       {
-        name: "Dragonborn",
+        name: 'Dragonborn',
         darkvision: 0,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         speed: 30,
         stats: {
@@ -14,10 +14,10 @@ export const races = [
         },
       },
       {
-        name: "Draconblood",
+        name: 'Draconblood',
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         stats: {
           intelligence: 2,
@@ -25,10 +25,10 @@ export const races = [
         },
       },
       {
-        name: "Ravenite",
+        name: 'Ravenite',
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         stats: {
           strengh: 2,
@@ -36,9 +36,9 @@ export const races = [
         },
       },
       {
-        name: "Chromatic",
+        name: 'Chromatic',
         darkvision: 0,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         speed: 30,
         stats: {
@@ -47,9 +47,9 @@ export const races = [
         },
       },
       {
-        name: "Metallic",
+        name: 'Metallic',
         darkvision: 0,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         speed: 30,
         stats: {
@@ -58,9 +58,9 @@ export const races = [
         },
       },
       {
-        name: "Gem",
+        name: 'Gem',
         darkvision: 0,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         speed: 30,
         stats: {
@@ -71,10 +71,10 @@ export const races = [
     ],
   },
   {
-    name: "Dwarf",
+    name: 'Dwarf',
     subclasses: [
       {
-        name: "Hill Dwarf",
+        name: 'Hill Dwarf',
         stats: {
           constitution: 2,
           wisdom: 1,
@@ -83,14 +83,14 @@ export const races = [
         speed: 25,
         proficiencies: [],
         weaponProficiencies: [
-          "Battleaxe",
-          "Handaxe",
-          "Light Hammer",
-          "Warhammer",
+          'Battleaxe',
+          'Handaxe',
+          'Light Hammer',
+          'Warhammer',
         ],
       },
       {
-        name: "Mountain Dwarf",
+        name: 'Mountain Dwarf',
         stats: {
           strengh: 2,
           constitution: 2,
@@ -99,14 +99,14 @@ export const races = [
         speed: 25,
         proficiencies: [],
         weaponProficiencies: [
-          "Battleaxe",
-          "Handaxe",
-          "Light Hammer",
-          "Warhammer",
+          'Battleaxe',
+          'Handaxe',
+          'Light Hammer',
+          'Warhammer',
         ],
       },
       {
-        name: "Duergar (Gray Dwarf)",
+        name: 'Duergar (Gray Dwarf)',
         stats: {
           one: 1,
           two: 2,
@@ -115,128 +115,128 @@ export const races = [
         darkvision: 120,
         proficiencies: [],
         weaponProficiencies: [
-          "Battleaxe",
-          "Handaxe",
-          "Light Hammer",
-          "Warhammer",
+          'Battleaxe',
+          'Handaxe',
+          'Light Hammer',
+          'Warhammer',
         ],
       },
     ],
   },
   {
-    name: "Elf",
+    name: 'Elf',
     subclasses: [
       {
-        name: "Dark Elf",
+        name: 'Dark Elf',
         stats: {
           charisma: 1,
           dexterity: 2,
         },
         speed: 30,
         darkvision: 120,
-        weaponProficiencies: ["Rapier", "Shortsword", "Hand Crossbow"],
-        proficiencies: ["Perception"],
+        weaponProficiencies: ['Rapier', 'Shortsword', 'Hand Crossbow'],
+        proficiencies: ['Perception'],
       },
       {
-        name: "Eladrin",
+        name: 'Eladrin',
         stats: {
           one: 1,
           two: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Perception"],
+        weaponProficiencies: [],
+        proficiencies: ['Perception'],
       },
       {
-        name: "High Elf",
+        name: 'High Elf',
         stats: {
           intelligence: 1,
           dexterity: 2,
         },
-        weaponProficiencies: ["Longsword", "Shortsword", "Shortbow", "Longbow"],
-        proficiencies: ["Perception"],
+        weaponProficiencies: ['Longsword', 'Shortsword', 'Shortbow', 'Longbow'],
+        proficiencies: ['Perception'],
         darkvision: 60,
         speed: 30,
       },
       {
-        name: "Sea Elf",
+        name: 'Sea Elf',
         stats: {
           constitution: 1,
           dexterity: 2,
         },
-        weaponProficiencies: ["Spear", "Trident", "Light crossbow", "Net"],
-        proficiencies: ["Perception"],
+        weaponProficiencies: ['Spear', 'Trident', 'Light crossbow', 'Net'],
+        proficiencies: ['Perception'],
         darkvision: 60,
         speed: 30,
       },
       {
-        name: "Shadar-Kai",
+        name: 'Shadar-Kai',
         stats: {
           constitution: 1,
           dexterity: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Perception"],
+        weaponProficiencies: [],
+        proficiencies: ['Perception'],
       },
       {
-        name: "Wood Elf",
+        name: 'Wood Elf',
         speed: 35,
         stats: {
           wisdom: 1,
           dexterity: 2,
         },
-        weaponProficiencies: ["Longsword", "Shortsword", "Shortbow", "Longbow"],
-        proficiencies: ["Perception"],
+        weaponProficiencies: ['Longsword', 'Shortsword', 'Shortbow', 'Longbow'],
+        proficiencies: ['Perception'],
         darkvision: 60,
       },
     ],
   },
   {
-    name: "Gnome",
+    name: 'Gnome',
     subclasses: [
       {
-        name: "Forest Gnome",
+        name: 'Forest Gnome',
         stats: {
           dexterity: 1,
           intelligence: 2,
         },
         darkvision: 60,
         speed: 25,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Rock Gnome",
+        name: 'Rock Gnome',
         stats: {
           constitution: 1,
           intelligence: 2,
         },
         darkvision: 60,
         speed: 25,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Svirfneblin (Deep Gnome)",
+        name: 'Svirfneblin (Deep Gnome)',
         stats: {
           dexterity: 1,
           intelligence: 2,
         },
         darkvision: 120,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Half-Elf",
+    name: 'Half-Elf',
     subclasses: [
       {
-        name: "Half-Elf",
+        name: 'Half-Elf',
         stats: {
           charisma: 2,
           one: 1,
@@ -244,59 +244,59 @@ export const races = [
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Half-Orc",
+    name: 'Half-Orc',
     subclasses: [
       {
-        name: "Half-Orc",
+        name: 'Half-Orc',
         stats: {
           strengh: 2,
           constitution: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Intimidation"],
+        weaponProficiencies: [],
+        proficiencies: ['Intimidation'],
       },
     ],
   },
   {
-    name: "Halfling",
+    name: 'Halfling',
     subclasses: [
       {
-        name: "Lightfoot Halfling",
+        name: 'Lightfoot Halfling',
         stats: {
           charisma: 1,
           dexterity: 2,
         },
         darkvision: 0,
         speed: 25,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Stout Halfling",
+        name: 'Stout Halfling',
         stats: {
           constitution: 1,
           dexterity: 2,
         },
         darkvision: 0,
         speed: 25,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Human",
+    name: 'Human',
     subclasses: [
       {
-        name: "Human",
+        name: 'Human',
         stats: {
           strengh: 1,
           dexterity: 1,
@@ -307,287 +307,287 @@ export const races = [
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Variant Human",
+        name: 'Variant Human',
         stats: {
           one: 1,
           two: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: [["1 race proficiencie of your choice"]],
+        weaponProficiencies: [],
+        proficiencies: [['1 race proficiencie of your choice']],
       },
     ],
   },
   {
-    name: "Tiefling",
+    name: 'Tiefling',
     subclasses: [
       {
-        name: "Bloodline of Asmodeus",
+        name: 'Bloodline of Asmodeus',
         stats: {
           intelligence: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Baalzebul",
+        name: 'Bloodline of Baalzebul',
         stats: {
           intelligence: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Dispater",
+        name: 'Bloodline of Dispater',
         stats: {
           dexterity: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Fierna",
+        name: 'Bloodline of Fierna',
         stats: {
           wisdom: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Glasya",
+        name: 'Bloodline of Glasya',
         stats: {
           dexterity: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Levistus",
+        name: 'Bloodline of Levistus',
         stats: {
           constitution: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Mammon",
+        name: 'Bloodline of Mammon',
         stats: {
           intelligence: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Mephistopheles",
+        name: 'Bloodline of Mephistopheles',
         stats: {
           intelligence: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Bloodline of Zariel",
+        name: 'Bloodline of Zariel',
         stats: {
           strengh: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Variant Tiefling",
+        name: 'Variant Tiefling',
         stats: {
           intelligence: 1,
           dexterity: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Aarakocra",
+    name: 'Aarakocra',
     subclasses: [
       {
-        name: "Aarakocra",
+        name: 'Aarakocra',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Aasimar",
+    name: 'Aasimar',
     stats: {
       charisma: 2,
     },
     subclasses: [
       {
-        name: "Aasimar",
+        name: 'Aasimar',
         stats: {
           one: 1,
           two: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Fallen Aasimar",
+        name: 'Fallen Aasimar',
         stats: {
           strengh: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Protector Aasimar",
+        name: 'Protector Aasimar',
         stats: {
           wisdom: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Scourge Aasimar",
+        name: 'Scourge Aasimar',
         stats: {
           constitution: 1,
           charisma: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "charismangeling",
+    name: 'charismangeling',
     subclasses: [
       {
-        name: "charismangeling",
+        name: 'charismangeling',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
           [
-            "2 race proficiencies from: Deception, Insight, Intimidation, Performance, or Persuasion",
+            '2 race proficiencies from: Deception, Insight, Intimidation, Performance, or Persuasion',
           ],
         ],
       },
     ],
   },
   {
-    name: "Fairy",
+    name: 'Fairy',
     subclasses: [
       {
-        name: "Fairy",
+        name: 'Fairy',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Firbolg",
+    name: 'Firbolg',
     subclasses: [
       {
-        name: "Firbolg",
+        name: 'Firbolg',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Genasi",
+    name: 'Genasi',
     subclasses: [
       {
-        name: "Air",
+        name: 'Air',
         stats: {
           one: 1,
           two: 2,
         },
         darkvision: 60,
         speed: 35,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Earth",
+        name: 'Earth',
         stats: {
           one: 1,
           one: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
       {
-        name: "Fire",
+        name: 'Fire',
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
         stats: {
           one: 1,
@@ -595,23 +595,23 @@ export const races = [
         },
       },
       {
-        name: "Water",
+        name: 'Water',
         stats: {
           one: 1,
           two: 2,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Githyanki",
+    name: 'Githyanki',
     subclasses: [
       {
-        name: "Githyanki",
+        name: 'Githyanki',
         stats: {
           two: 2,
           one: 1,
@@ -619,163 +619,163 @@ export const races = [
         darkvision: 0,
         speed: 30,
         proficiencies: [],
-        weaponProficiencies: ["Shortsword", "Longsword", "Greatsword"],
+        weaponProficiencies: ['Shortsword', 'Longsword', 'Greatsword'],
       },
     ],
   },
   {
-    name: "Githzerai",
+    name: 'Githzerai',
     subclasses: [
       {
-        name: "Githzerai",
+        name: 'Githzerai',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Goliath",
+    name: 'Goliath',
     subclasses: [
       {
-        name: "Goliath",
+        name: 'Goliath',
         stats: {
           strengh: 2,
           constitution: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Athletics"],
+        weaponProficiencies: [],
+        proficiencies: ['Athletics'],
       },
     ],
   },
   {
-    name: "Harengon",
+    name: 'Harengon',
     subclasses: [
       {
-        name: "Harengon",
+        name: 'Harengon',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Perception"],
+        weaponProficiencies: [],
+        proficiencies: ['Perception'],
       },
     ],
   },
   {
-    name: "Kenku",
+    name: 'Kenku',
     subclasses: [
       {
-        name: "Kenku",
+        name: 'Kenku',
         stats: {
           dexterity: 2,
           wisdom: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
           [
-            "2 race proficiencies from: Acrobatics, Deception, Stealth, and Sleight of Hand.",
+            '2 race proficiencies from: Acrobatics, Deception, Stealth, and Sleight of Hand.',
           ],
         ],
       },
     ],
   },
   {
-    name: "Locathah",
+    name: 'Locathah',
     subclasses: [
       {
-        name: "Locathah",
+        name: 'Locathah',
         stats: {
           strengh: 2,
           dexterity: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Athletics", "Perception"],
+        weaponProficiencies: [],
+        proficiencies: ['Athletics', 'Perception'],
       },
     ],
   },
   {
-    name: "Owlin",
+    name: 'Owlin',
     subclasses: [
       {
-        name: "Owlin",
+        name: 'Owlin',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 120,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Stealth"],
+        weaponProficiencies: [],
+        proficiencies: ['Stealth'],
       },
     ],
   },
   {
-    name: "Satyr",
+    name: 'Satyr',
     subclasses: [
       {
-        name: "Satyr",
+        name: 'Satyr',
         stats: {
           charisma: 2,
           dexterity: 1,
         },
         darkvision: 0,
         speed: 35,
-        weaponProficiencies: "",
-        proficiencies: ["Performance", "Persuasion"],
+        weaponProficiencies: [],
+        proficiencies: ['Performance', 'Persuasion'],
       },
     ],
   },
   {
-    name: "Tabaxi",
+    name: 'Tabaxi',
     subclasses: [
       {
-        name: "Tabaxi",
+        name: 'Tabaxi',
         stats: {
           dexterity: 2,
           charisma: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Perception", "Stealth"],
+        weaponProficiencies: [],
+        proficiencies: ['Perception', 'Stealth'],
       },
     ],
   },
   {
-    name: "Tortle",
+    name: 'Tortle',
     subclasses: [
       {
-        name: "Tortle",
+        name: 'Tortle',
         stats: {
           strengh: 2,
           wisdom: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Survival"],
+        weaponProficiencies: [],
+        proficiencies: ['Survival'],
       },
     ],
   },
   {
-    name: "Triton",
+    name: 'Triton',
     subclasses: [
       {
-        name: "Triton",
+        name: 'Triton',
         stats: {
           strengh: 1,
           constitution: 1,
@@ -783,217 +783,217 @@ export const races = [
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Verdan",
+    name: 'Verdan',
     subclasses: [
       {
-        name: "Verdan",
+        name: 'Verdan',
         stats: {
           charisma: 2,
           constitution: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Persuasion"],
+        weaponProficiencies: [],
+        proficiencies: ['Persuasion'],
       },
     ],
   },
   {
-    name: "Bugbear",
+    name: 'Bugbear',
     subclasses: [
       {
-        name: "Bugbear",
+        name: 'Bugbear',
         stats: {
           strengh: 2,
           dexterity: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
-        proficiencies: ["Stealth "],
+        weaponProficiencies: [],
+        proficiencies: ['Stealth '],
       },
     ],
   },
   {
-    name: "Centaur",
+    name: 'Centaur',
     subclasses: [
       {
-        name: "Centaur",
+        name: 'Centaur',
         stats: {
           strengh: 2,
           wisdom: 1,
         },
         darkvision: 0,
         speed: 40,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
           [
-            "1 race proficiency from: Animal Handling, Medicine, Nature, or Survival",
+            '1 race proficiency from: Animal Handling, Medicine, Nature, or Survival',
           ],
         ],
       },
     ],
   },
   {
-    name: "Goblin",
+    name: 'Goblin',
     subclasses: [
       {
-        name: "Goblin",
+        name: 'Goblin',
         stats: {
           dexterity: 2,
           constitution: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Grung",
+    name: 'Grung',
     subclasses: [
       {
-        name: "Grung",
+        name: 'Grung',
         stats: {
           dexterity: 2,
           constitution: 1,
         },
         darkvision: 0,
         speed: 25,
-        weaponProficiencies: "",
-        proficiencies: ["Perception"],
+        weaponProficiencies: [],
+        proficiencies: ['Perception'],
       },
     ],
   },
   {
-    name: "Hobgoblin",
+    name: 'Hobgoblin',
     subclasses: [
       {
-        name: "Hobgoblin",
+        name: 'Hobgoblin',
         stats: {
           constitution: 2,
           intelligence: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Kobold",
+    name: 'Kobold',
     subclasses: [
       {
-        name: "Kobold",
+        name: 'Kobold',
         stats: {
           dexterity: 2,
           one: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
   },
   {
-    name: "Lizardfolk",
+    name: 'Lizardfolk',
     subclasses: [
       {
-        name: "Lizardfolk",
+        name: 'Lizardfolk',
         stats: {
           constitution: 2,
           wisdom: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
           [
-            "2 race proficiencies from: Animal Handling, Nature, Perception, Stealth, and Survival",
+            '2 race proficiencies from: Animal Handling, Nature, Perception, Stealth, and Survival',
           ],
         ],
       },
     ],
   },
   {
-    name: "Minotaur",
+    name: 'Minotaur',
     subclasses: [
       {
-        name: "Minotaur",
+        name: 'Minotaur',
         stats: {
           strengh: 2,
           constitution: 1,
         },
         darkvision: 0,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
-          ["1 race proficiency from: Intimidation or Persuasion"],
+          ['1 race proficiency from: Intimidation or Persuasion'],
         ],
       },
     ],
   },
   {
-    name: "Orc",
+    name: 'Orc',
     subclasses: [
       {
-        name: "Orc",
+        name: 'Orc',
         stats: {
           strengh: 2,
           constitution: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
           [
-            "2 race proficiencies from: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.",
+            '2 race proficiencies from: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival.',
           ],
         ],
       },
     ],
   },
   {
-    name: "Shifter",
+    name: 'Shifter',
     subclasses: [
       {
-        name: "Shifter",
+        name: 'Shifter',
         stats: {
           two: 2,
           one: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [
           [
-            "1 race proficiency from: Acrobatics, Athletics, Intimidation, or Survival.",
+            '1 race proficiency from: Acrobatics, Athletics, Intimidation, or Survival.',
           ],
         ],
       },
     ],
   },
   {
-    name: "Yuan-Ti",
+    name: 'Yuan-Ti',
     subclasses: [
       {
-        name: "Yuan-Ti",
+        name: 'Yuan-Ti',
         stats: {
           charisma: 2,
           intelligence: 1,
         },
         darkvision: 60,
         speed: 30,
-        weaponProficiencies: "",
+        weaponProficiencies: [],
         proficiencies: [],
       },
     ],
