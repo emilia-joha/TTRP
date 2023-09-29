@@ -1,10 +1,18 @@
 const allSavableFields = [
   'ability_charisma',
+  'ability_modifier_charisma',
   'ability_constitution',
+  'ability_modifier_constitution',
   'ability_dexterity',
+  'ability_modifier_dexterity',
   'ability_intelligence',
+  'ability_modifier_intelligence',
   'ability_strength',
+  'ability_modifier_strength',
   'ability_wisdom',
+  'ability_modifier_wisdom',
+  'armor',
+  'shield_to_ac',
   'armor_class',
   'background',
   'backstory',
@@ -59,6 +67,7 @@ const allSavableFields = [
   'medium_term_goal',
   'memories_or_events',
   'multiclassLevel',
+  'multiclass',
   'multiclassSubclass',
   'name',
   'player_name',
@@ -102,13 +111,55 @@ const allSavableFields = [
   '_IS_SECRET',
   '_IS_PUBLIC',
   '_ID',
+  'attack_bonus_0',
+  'damage_0',
+  'property_0',
+  'type_0',
+  'weapon_name_0',
+
+  'attack_bonus_1',
+  'damage_1',
+  'property_1',
+  'type_1',
+  'weapon_name_1',
+
+  'attack_bonus_2',
+  'damage_2',
+  'property_2',
+  'type_2',
+  'weapon_name_2',
+
+  'attack_bonus_3',
+  'damage_3',
+  'property_3',
+  'type_3',
+  'weapon_name_3',
+
+  'attack_bonus_4',
+  'damage_4',
+  'property_4',
+  'type_4',
+  'weapon_name_4',
 ];
+
+/*
+'attack_bonus_0',
+'damage_0',
+'property_0',
+'type_0',
+'weapon_name_0',
+*/
 
 function val(elementId) {
   const element = id(elementId);
   if (!element) return null;
 
-  const data = element.type == 'checkbox' ? element.checked : element.value;
+  const data =
+    element.type == 'checkbox' // checkbox
+      ? element.checked
+      : element.type == undefined // div
+      ? element.innerText
+      : element.value; // else input
 
   if (data == 'true' || data == 'false') {
     return data == 'true';
@@ -120,14 +171,6 @@ function val(elementId) {
 function id(elementId) {
   return document.getElementById(elementId);
 }
-
-/*
-'attack_bonus_0',
-'damage_0',
-'property_0',
-'type_0',
-'weapon_name_0',
-*/
 
 let debouncer = 0;
 let isSaved = false;
@@ -168,6 +211,9 @@ const saveSuccess = $('#saving-success');
 const saveFail = $('#saving-fail');
 let feedbackDebouncer = 0;
 function feedback(success) {
+  saveSuccess.hide();
+  saveFail.hide();
+
   if (success) {
     saveSuccess.show();
   } else {
@@ -177,10 +223,8 @@ function feedback(success) {
 
   if (feedbackDebouncer) clearTimeout(feedbackDebouncer);
   feedbackDebouncer = setTimeout(() => {
-    saveSuccess.hide();
-    saveFail.hide();
     saveStatus.slideUp();
-  }, 3000);
+  }, 2000);
 }
 
 async function save() {

@@ -21,40 +21,683 @@
     <section>
       <header>Character Information</header>
       <div class="foldable">
-        <div id="character_info"></div>
+        <!-- # # # # # # # # # # # # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # #    CHAR INFO    # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # # # # # # # # # # # # # -->
+        <div id="character_info">
+          <label class="whole_width">
+            <input type="text" id="name" />
+            Name
+          </label>
+          <div class="two_box">
+            <label class="half_width">
+              <select id="race">
+                <option value="">Select Race...</option>
+              </select>
+              Race
+            </label>
+            <label class="half_width">
+              <select id="subrace">
+                <option value="">Select Subace...</option>
+              </select>
+              Subrace
+            </label>
+          </div>
+          <label class="whole_width">
+            <select id="background">
+              <option value="">Select Background...</option>
+            </select>
+            Background
+          </label>
+          <div class="classBox">
+            <div class="two_box">
+              <label class="half_width">
+                <select id="class">
+                  <option value="">Select Class...</option>
+                </select>
+                Class
+              </label>
+              <label class="half_width">
+                <select id="subclass">
+                  <option value="">Select Subclass</option>
+                </select>
+                Subclass
+              </label>
+            </div>
+            <label class="whole_width">
+              <select id="level">
+                <option value="">Select Level...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+              </select>
+              Level
+            </label>
+            <div id="multiclass_box">
+              <div class="two_box">
+                <label class="half_width">
+                  <select id="multiclass">
+                    <option value="">Select Class...</option>
+                  </select>
+                  Multiclass Class
+                </label>
+                <label class="half_width">
+                  <select id="multiclassSubclass">
+                    <option value="">Select Subclass</option>
+                  </select>
+                  Multiclass Subclass
+                </label>
+              </div>
+              <label class="whole_width">
+                <select id="multiclassLevel">
+                  <option value="">Select Level...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                </select>
+                Multiclass Level
+              </label>
+            </div>
+            <div class="button_box">
+              <button id="multiclass_button">Multiclass</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section>
       <header>Backstory</header>
       <div class="foldable">
-        <div id="background"></div>
+        <!-- # # # # # # # # # # # # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # #   BACKGROUND    # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # # # # # # # # # # # # # -->
+        <div id="background">
+          <label>
+            <textarea id="leaving_for_adventure"></textarea>
+            Reason for adventure
+          </label>
+          <div class="two_box center_box">
+            <label>
+              <textarea id="short_term_goal"></textarea>
+              <p class="label_p">Short term goal</p>
+            </label>
+            <label>
+              <textarea id="medium_term_goal"></textarea>
+              <p class="label_p">Medium term goal</p>
+            </label>
+            <label>
+              <textarea id="long_term_goal"></textarea>
+              <p class="label_p">Long term goal</p>
+            </label>
+          </div>
+          <div class="two_box center_box">
+            <label>
+              <textarea id="strength"></textarea>
+              Biggest strength
+            </label>
+            <label>
+              <textarea id="flaw"></textarea>
+              Biggest flaw
+            </label>
+          </div>
+          <div class="two_box center_box">
+            <label>
+              <textarea id="loves"></textarea>
+              Loves
+            </label>
+            <label>
+              <textarea id="hates"></textarea>
+              Hates
+            </label>
+          </div>
+          <label>
+            <textarea id="social_behaviors"></textarea>
+            Social behaviors
+          </label>
+          <label>
+            <textarea id="hobby_and_interests"></textarea>
+            Hobby and interests
+          </label>
+          <label>
+            <textarea id="secret"></textarea>
+            Secrets
+          </label>
+          <label>
+            <textarea id="important_people"></textarea>
+            Three important people
+          </label>
+          <label>
+            <textarea id="memories_or_events"></textarea>
+            Three important memories or events
+          </label>
+          <label>
+            <textarea id="childhood"></textarea>
+            Information about childhood
+          </label>
+          <label>
+            <textarea
+              id="backstory"
+              placeholder="300-500 word, realistic and descriptive"
+            ></textarea>
+            Backstory
+          </label>
+        </div>
       </div>
     </section>
     <section>
       <header>Abilities</header>
       <div class="foldable">
-        <div id="abilities"></div>
+        <!-- # # # # # # # # # # # # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # #    ABILITIES    # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # # # # # # # # # # # # # -->
+        <div id="abilities">
+          <div class="two_box">
+            <label class="half_width">
+              <div class="abilities">
+                <div
+                  id="ability_modifier_strength"
+                  class="big_inside_box"
+                ></div>
+                <input type="text" id="ability_strength" />
+              </div>
+              Strength
+            </label>
+            <label class="half_width">
+              <div class="abilities">
+                <div id="ability_modifier_dexterity"></div>
+                <input type="text" id="ability_dexterity" />
+              </div>
+              Dexterity
+            </label>
+          </div>
+          <div class="two_box">
+            <label class="half_width">
+              <div class="abilities">
+                <div id="ability_modifier_constitution"></div>
+                <input type="text" id="ability_constitution" />
+              </div>
+              Constitution
+            </label>
+            <label class="half_width">
+              <div class="abilities">
+                <div id="ability_modifier_intelligence"></div>
+                <input type="text" id="ability_intelligence" />
+              </div>
+              Intelligence
+            </label>
+          </div>
+          <div class="two_box">
+            <label class="half_width">
+              <div class="abilities">
+                <div id="ability_modifier_wisdom"></div>
+                <input type="text" id="ability_wisdom" />
+              </div>
+              Wisdom
+            </label>
+            <label class="half_width">
+              <div class="abilities">
+                <div id="ability_modifier_charisma"></div>
+                <input type="text" id="ability_charisma" />
+              </div>
+              Charisma
+            </label>
+          </div>
+          <div class="center_box">
+            <label class="half_width">
+              <div id="proficiency_bonus"></div>
+              Proficiency Bonus
+            </label>
+          </div>
+          <div class="center_box">
+            <div id="skills">
+              <div class="two_box">
+                <p>Expertise</p>
+                <p>Proficiency</p>
+              </div>
+            </div>
+          </div>
+          <div class="padding">
+            <div id="skill_proficiencies_select"></div>
+          </div>
+          <div id="skill_button_box" class="button_box"></div>
+          <div class="two_box">
+            <label class="one_thirds">
+              <div id="passive_wisdom" class="whole_width passive"></div>
+              <p class="label_p">Passive Perception</p>
+            </label>
+            <label class="one_thirds">
+              <div id="passive_insight" class="whole_width passive"></div>
+              <p class="label_p">Passive Insight</p>
+            </label>
+            <label class="one_thirds">
+              <div id="passive_investigation" class="whole_width passive"></div>
+              <p class="label_p">Passive Investigation</p>
+            </label>
+          </div>
+
+          <label class="center_box">
+            <input id="darkvision" type="text" class="half_width" />
+            Darkvision
+          </label>
+          <label>
+            <textarea id="proficiencies_languages"></textarea>
+            Languages
+          </label>
+        </div>
       </div>
     </section>
     <section>
       <header>Equipment</header>
       <div class="foldable">
-        <div id="equipments"></div>
+        <!-- # # # # # # # # # # # # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # #    EQUIPMENT    # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # # # # # # # # # # # # # -->
+        <div id="equipments">
+          <label>
+            <textarea id="equipment"></textarea>
+            Equipment
+          </label>
+          <div class="two_box">
+            <label class="three_thirds">
+              <select id="armor">
+                <option value="">Select Armor...</option>
+              </select>
+              Armor
+            </label>
+            <div id="shield">
+              <label><input type="checkbox" id="shield_to_ac" />Shield</label>
+            </div>
+          </div>
+          <label>
+            <textarea id="inventory"></textarea>
+            Inventory
+          </label>
+          <div class="two_box">
+            <label class="half_width">
+              <input type="text" id="CP" />
+              Copper Pieces
+            </label>
+            <label class="half_width">
+              <input type="text" id="SP" />
+              Silver Pieces
+            </label>
+          </div>
+          <div class="two_box">
+            <label class="half_width">
+              <input type="text" id="GP" />
+              Gold Pieces
+            </label>
+            <label class="half_width">
+              <input type="text" id="PP" />
+              Platinum pieces
+            </label>
+          </div>
+        </div>
       </div>
     </section>
     <section>
       <header>Fight</header>
       <div class="foldable">
-        <div id="fight"></div>
+        <!-- # # # # # # # # # # # # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # #      FIGHT      # # # -->
+        <!-- # # #                 # # # -->
+        <!-- # # # # # # # # # # # # # # -->
+        <div id="fight">
+          <div class="two_box">
+            <label class="one_thirds">
+              <input id="armor_class" type="text" />
+              Armor Class
+            </label>
+            <label class="one_thirds">
+              <input id="initiative" type="text" />
+              Initiative
+            </label>
+            <label class="one_thirds">
+              <input id="speed" type="text" />
+              Speed
+            </label>
+          </div>
+          <div class="center_box">
+            <label class="half_width">
+              <div id="dice">
+                <input id="total_hit_dice" type="text" />
+                <div id="hit_dice"></div>
+              </div>
+              Hit Dice
+            </label>
+          </div>
+          <div class="two_box align_center_box">
+            <label class="half_width">
+              <div class="two_input">
+                <input id="current_hit_points" type="text" />
+                <input id="hit_point_maximum" type="text" />
+              </div>
+              Hit Points
+            </label>
+            <label class="half_width">
+              <input id="temporary_hit_points" type="text" />
+              Temporary Hit Points
+            </label>
+          </div>
+          <div class="center_box">
+            <div id="saving_throws">
+              <div class="saving_throw">
+                <label class="two_box">
+                  <input
+                    id="proficiency_saving_throws_strength"
+                    class="saving_throw"
+                    type="checkbox"
+                  />
+                  <p id="saving_throws_strength"></p>
+                  Strength
+                </label>
+              </div>
+              <div class="saving_throw">
+                <label class="two_box">
+                  <input
+                    id="proficiency_saving_throws_dexterity"
+                    type="checkbox"
+                  />
+                  <p id="saving_throws_dexterity"></p>
+                  Dexterity
+                </label>
+              </div>
+              <div class="saving_throw">
+                <label class="two_box">
+                  <input
+                    id="proficiency_saving_throws_constitution"
+                    type="checkbox"
+                  />
+                  <p id="saving_throws_constitution"></p>
+                  Constitution
+                </label>
+              </div>
+              <div class="saving_throw">
+                <label class="two_box">
+                  <input
+                    id="proficiency_saving_throws_intelligence"
+                    type="checkbox"
+                  />
+                  <p id="saving_throws_intelligence"></p>
+                  Intelligence
+                </label>
+              </div>
+              <div class="saving_throw">
+                <label class="two_box">
+                  <input
+                    id="proficiency_saving_throws_wisdom"
+                    type="checkbox"
+                  />
+                  <p id="saving_throws_wisdom"></p>
+                  Wisdom
+                </label>
+              </div>
+              <div class="saving_throw">
+                <label class="two_box">
+                  <input
+                    id="proficiency_saving_throws_charisma"
+                    type="checkbox"
+                  />
+                  <p id="saving_throws_charisma"></p>
+                  Charisma
+                </label>
+              </div>
+            </div>
+          </div>
+          <div id="weapons">
+            <div class="weapon">
+              <label class="whole_width">
+                <select id="weapon_name_0" class="weapon_name">
+                  <option value="">Select Weapon...</option>
+                </select>
+              </label>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="type_0" class="weapon_type" />
+                  Weapon Type
+                </label>
+                <label class="half_width">
+                  <input type="text" id="attack_bonus_0" class="attack_bonus" />
+                  Attack Bonus
+                </label>
+              </div>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="damage_0" class="damage" />
+                  Damage
+                </label>
+                <label class="half_width">
+                  <input type="text" id="property_0" class="property" />
+                  Weapon Property
+                </label>
+              </div>
+            </div>
+            <div class="weapon invisible">
+              <label class="whole_width">
+                <select id="weapon_name_1" class="weapon_name">
+                  <option value="">Select Weapon...</option>
+                </select>
+              </label>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="type_1" class="weapon_type" />
+                  Weapon Type
+                </label>
+                <label class="half_width">
+                  <input type="text" id="attack_bonus_1" class="attack_bonus" />
+                  Attack Bonus
+                </label>
+              </div>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="damage_1" class="damage" />
+                  Damage
+                </label>
+                <label class="half_width">
+                  <input type="text" id="property_1" class="property" />
+                  Weapon Property
+                </label>
+              </div>
+            </div>
+            <div class="weapon invisible">
+              <label class="whole_width">
+                <select id="weapon_name_2" class="weapon_name">
+                  <option value="">Select Weapon...</option>
+                </select>
+              </label>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="type_2" class="weapon_type" />
+                  Weapon Type
+                </label>
+                <label class="half_width">
+                  <input type="text" id="attack_bonus_2" class="attack_bonus" />
+                  Attack Bonus
+                </label>
+              </div>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="damage_2" class="damage" />
+                  Damage
+                </label>
+                <label class="half_width">
+                  <input type="text" id="property_2" class="property" />
+                  Weapon Property
+                </label>
+              </div>
+            </div>
+            <div class="weapon invisible">
+              <label class="whole_width">
+                <select id="weapon_name_3" class="weapon_name">
+                  <option value="">Select Weapon...</option>
+                </select>
+              </label>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="type_3" class="weapon_type" />
+                  Weapon Type
+                </label>
+                <label class="half_width">
+                  <input type="text" id="attack_bonus_3" class="attack_bonus" />
+                  Attack Bonus
+                </label>
+              </div>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="damage_3" class="damage" />
+                  Damage
+                </label>
+                <label class="half_width">
+                  <input type="text" id="property_3" class="property" />
+                  Weapon Property
+                </label>
+              </div>
+            </div>
+            <div class="weapon invisible">
+              <label class="whole_width">
+                <select id="weapon_name_4" class="weapon_name">
+                  <option value="">Select Weapon...</option>
+                </select>
+              </label>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="type_4" class="weapon_type" />
+                  Weapon Type
+                </label>
+                <label class="half_width">
+                  <input type="text" id="attack_bonus_4" class="attack_bonus" />
+                  Attack Bonus
+                </label>
+              </div>
+              <div class="two_box">
+                <label class="half_width">
+                  <input type="text" id="damage_4" class="damage" />
+                  Damage
+                </label>
+                <label class="half_width">
+                  <input type="text" id="property_4" class="property" />
+                  Weapon Property
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="button_box">
+            <button id="add_weapon">Add Weapon</button>
+          </div>
+          <div id="spell_casting">
+            <div class="two_box">
+              <label class="one_thirds">
+                <div id="class_name" class="spellcasting whole_width"></div>
+                <p class="label_p">Class</p>
+              </label>
+              <label class="one_sixteenth">
+                <div id="spell_save_dc" class="spellcasting whole_width"></div>
+                <p class="label_p">Spell Save DC</p>
+              </label>
+              <label class="one_sixteenth">
+                <div
+                  id="spell_attack_modifier"
+                  class="spellcasting whole_width"
+                ></div>
+                <p class="label_p">Spell Attack Modifier</p>
+              </label>
+              <label class="one_thirds">
+                <div
+                  id="spellcasting_Ability"
+                  class="spellcasting whole_width"
+                ></div>
+                <p class="label_p">Spellcasting Ability</p>
+              </label>
+            </div>
+          </div>
+          <label id="death_saves">
+            <div class="two_box whole_width center_box">
+              <label>
+                <div class="two_box">
+                  <input type="checkbox" id="death_success_1" />
+                  <input type="checkbox" id="death_success_2" />
+                  <input type="checkbox" id="death_success_3" />
+                </div>
+                Success
+              </label>
+              <label>
+                <div class="two_box center_box">
+                  <input type="checkbox" id="death_fail_1" />
+                  <input type="checkbox" id="death_fail_2" />
+                  <input type="checkbox" id="death_fail_3" />
+                </div>
+                Failure
+              </label>
+            </div>
+            Death Saves
+          </label>
+          <label>
+            <div class="two_box">
+              <input type="checkbox" id="exhaustion_1" class="exhaustion" />
+              <input type="checkbox" id="exhaustion_2" class="exhaustion" />
+              <input type="checkbox" id="exhaustion_3" class="exhaustion" />
+              <input type="checkbox" id="exhaustion_4" class="exhaustion" />
+              <input type="checkbox" id="exhaustion_5" class="exhaustion" />
+              <input type="checkbox" id="exhaustion_6" class="exhaustion" />
+            </div>
+            Exhaustion
+          </label>
+          <div class="padding">
+            <div id="exhaustion_description" class="whole_width"></div>
+          </div>
+        </div>
       </div>
     </section>
     <div id="saving-status">
-      <div id="saving-success">Saved successful</div>
+      <div id="saving-success">✅</div>
       <div id="saving-fail">Save failed for unknown reasons</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/load-subpages.js" type="module"></script>
     <script src="./scripts/character.js" type="module"></script>
     <script src="./scripts/populate.js" type="module"></script>
     <script src="./scripts/saving.js" type="module"></script>
